@@ -27,5 +27,3 @@ ChoriPlaneo not only allows you to create plans, it also gives you the opportuni
 At ChoriPlaneo, your security and privacy are our top priority. We protect your personal data and allow you to control who can see your plans and reviews. Plus, our user interface is simple and easy to use.
 
 Ready to "choriplan" with your friends? Join the ChoriPlaneo community and discover new adventures together - don't get left behind and create unforgettable moments with ChoriPlaneo!
-
-Translated with www.DeepL.com/Translator (free version)
