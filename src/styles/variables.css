@@ -34,6 +34,7 @@
 
   /* RADIUS VARIABLES */
   --radius-none: 0px;
+  --radius-xs: 4px;
   --radius-s: 8px;
   --radius-m: 16px;
   --radius-l: 30px;
