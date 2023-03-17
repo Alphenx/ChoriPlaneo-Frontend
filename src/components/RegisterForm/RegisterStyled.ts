@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { RegisterStatus } from '../../shared/models/api-status';
+import { AuthStatus } from '../../shared/models/api-status';
 
 export const RegisterFormStyled = styled.form`
   display: flex;
@@ -11,6 +11,7 @@ export const RegisterFormStyled = styled.form`
   div {
     width: 100%;
     height: 2rem;
+    margin: 1rem 0;
   }
 
   label {
@@ -45,9 +46,11 @@ export const RegisterFormStyled = styled.form`
     }
 
     input {
+      color: var(--base-color-contrast);
       width: 100%;
       height: 2.6rem;
       border: var(--border-s) var(--base-color-contrast);
+      background-color: var(--base-color-bg);
       border-radius: var(--radius-xs);
       padding: 0.5rem;
       :focus {
@@ -86,7 +89,7 @@ export const RegisterButtonStyled = styled.button`
   font-family: var(--main-font-regular);
   font-size: var(--font-size-s);
   background-color: var(--main-color);
-  color: var(--base-color-bg);
+  color: var(--main-color-light);
   border: none;
   border-radius: var(--radius-l);
   padding: 1rem;
@@ -97,21 +100,18 @@ export const RegisterButtonStyled = styled.button`
 `;
 
 interface AuthStatusProps {
-  authStatus:
-    | RegisterStatus.SUCCESS
-    | RegisterStatus.LOADING
-    | RegisterStatus.ERROR;
+  authStatus: AuthStatus.SUCCESS | AuthStatus.LOADING | AuthStatus.ERROR;
 }
 
 export const FeedBackStyled = styled.h3<AuthStatusProps>`
   background-color: ${props =>
-    props.authStatus === RegisterStatus.SUCCESS
+    props.authStatus === AuthStatus.SUCCESS
       ? 'var(--green-color)'
       : 'var(--red-color)'};
 
   font-family: var(--main-font-light);
   font-size: var(--font-size-xs);
-  color: var(--base-color-bg);
+  color: var(--base-color-text-light);
   border: none;
   border-radius: var(--radius-l);
   text-align: center;

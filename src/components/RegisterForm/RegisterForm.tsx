@@ -7,7 +7,7 @@ import {
 } from '../../features/auth/auth-slice';
 import { UserRegister } from '../../features/auth/user.model';
 import Loading from '../../shared/components/Loading/Loading';
-import { RegisterStatus } from '../../shared/models/api-status';
+import { AuthStatus } from '../../shared/models/api-status';
 import {
   FeedBackStyled,
   RegisterButtonStyled,
@@ -21,20 +21,21 @@ const RegisterForm = () => {
 
   const generateFeedback = () => {
     switch (registerStatus) {
-      case RegisterStatus.LOADING:
+      case AuthStatus.LOADING:
         return <Loading />;
-      case RegisterStatus.SUCCESS:
+      case AuthStatus.SUCCESS:
         return (
-          <FeedBackStyled authStatus={RegisterStatus.SUCCESS}>
+          <FeedBackStyled authStatus={AuthStatus.SUCCESS}>
             {responseMsg}
           </FeedBackStyled>
         );
-      case RegisterStatus.ERROR:
+      case AuthStatus.ERROR:
         return (
-          <FeedBackStyled authStatus={RegisterStatus.ERROR}>
+          <FeedBackStyled authStatus={AuthStatus.ERROR}>
             {responseMsg}
           </FeedBackStyled>
         );
+
       default:
         return;
     }
@@ -55,7 +56,14 @@ const RegisterForm = () => {
         }
       }}
     >
-      <div>{generateFeedback()}</div>
+      <div>
+        {(!isPswRepeated && (
+          <FeedBackStyled authStatus={AuthStatus.ERROR}>
+            Ops...Passwords don't match
+          </FeedBackStyled>
+        )) ||
+          generateFeedback()}
+      </div>
 
       <label role={'complementary'}>
         <span>Name:</span>
@@ -104,7 +112,7 @@ const RegisterForm = () => {
       </label>
 
       <p className="login-link">
-        Already have an account? <a href="/gg">Log in</a>
+        Already have an account? <a href="/">Log in</a>
       </p>
       <p>
         By continuing, you agree to our Terms of Service and Privacy Policy.
