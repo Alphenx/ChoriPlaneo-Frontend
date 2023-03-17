@@ -4,13 +4,9 @@ export enum APIStatus {
   IDLE = 'idle',
 }
 
-export enum RegisterStatus {
+export enum AuthStatus {
   LOADING = 'loading',
   ERROR = 'failed',
   SUCCESS = 'idle',
   NOT_USED = 'notUsed',
-}
-
-export interface APIResponse {
-  status: 409 | 201 | 500;
 }
