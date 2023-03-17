@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { AuthStatus } from '../../shared/models/api-status';
+// import { RegisterStatus } from '../../shared/models/api-status';
 
-export const RegisterFormStyled = styled.form`
+export const LoginFormStyled = styled.form`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -11,7 +12,6 @@ export const RegisterFormStyled = styled.form`
   div {
     width: 100%;
     height: 2rem;
-    margin: 1rem 0;
   }
 
   label {
@@ -85,11 +85,11 @@ export const RegisterFormStyled = styled.form`
   }
 `;
 
-export const RegisterButtonStyled = styled.button`
+export const LoginButtonStyled = styled.button`
   font-family: var(--main-font-regular);
   font-size: var(--font-size-s);
   background-color: var(--main-color);
-  color: var(--main-color-light);
+  color: var(--base-color-text-light);
   border: none;
   border-radius: var(--radius-l);
   padding: 1rem;
@@ -112,6 +112,7 @@ export const FeedBackStyled = styled.h3<AuthStatusProps>`
   font-family: var(--main-font-light);
   font-size: var(--font-size-xs);
   color: var(--base-color-text-light);
+
   border: none;
   border-radius: var(--radius-l);
   text-align: center;

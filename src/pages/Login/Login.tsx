@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import RegisterForm from '../../components/RegisterForm/RegisterForm';
+import LoginForm from '../../components/LoginForm/LoginForm';
 import HandleTheme from '../../shared/components/HandleTheme/HandleTheme';
 
-const RegisterSectionStyled = styled.section`
+const LoginSectionStyled = styled.section`
   display: flex;
   width: 100%;
   text-align: center;
@@ -36,9 +36,9 @@ const RegisterSectionStyled = styled.section`
   }
 `;
 
-const Register = () => {
+const Login = () => {
   return (
-    <RegisterSectionStyled>
+    <LoginSectionStyled>
       <HandleTheme />
       <img
         className="home-img"
@@ -47,10 +47,10 @@ const Register = () => {
       />
       <div className="form-container">
         <img className="logo" src="/assets/imgs/logo.png" alt="logo" />
-        <RegisterForm />
+        <LoginForm />
       </div>
-    </RegisterSectionStyled>
+    </LoginSectionStyled>
   );
 };
 
-export default Register;
+export default Login;

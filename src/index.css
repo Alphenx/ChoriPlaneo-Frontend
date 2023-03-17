@@ -2,6 +2,19 @@ body {
   font-family: var(--main-font-regular);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--base-color-bg);
+}
+
+html[data-theme='dark'] {
+  background-color: var(--base-color-bg);
+  color: var(--base-color-contrast);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--base-color-bg);
+    color: var(--base-color-contrast);
+  }
 }
 
 /* ------ RESETS ------ */
