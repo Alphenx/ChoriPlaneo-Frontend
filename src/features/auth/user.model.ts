@@ -12,4 +12,6 @@ export type UserRegister = {
   repeatedPassword?: string;
 };
 
+export type UserLogin = Pick<User, 'email' | 'password'>;
+
 export default User;
