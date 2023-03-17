@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { AuthStatus } from '../../shared/models/api-status';
-// import { RegisterStatus } from '../../shared/models/api-status';
 
 export const LoginFormStyled = styled.form`
   display: flex;
