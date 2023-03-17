@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react';
-
-import React from 'react';
 import { Switch } from './HandleThemeStyled';
 
 const HandleTheme = () => {
