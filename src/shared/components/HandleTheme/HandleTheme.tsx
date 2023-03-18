@@ -14,6 +14,7 @@ const HandleTheme = () => {
   return (
     <Switch>
       <label className="switch">
+        theme
         <input
           type="checkbox"
           className={currentTheme}

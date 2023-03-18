@@ -11,7 +11,7 @@ const LoginSectionStyled = styled.section`
   .form-container {
     width: 50%;
     max-width: 500px;
-    margin: 8rem auto;
+    margin: 5rem auto 0;
     padding: 0 1.5rem;
   }
 
@@ -19,11 +19,12 @@ const LoginSectionStyled = styled.section`
     width: 50%;
     object-fit: cover;
     height: 100vh;
+    max-height: 700px;
   }
 
   .logo {
     width: 90%;
-    margin-bottom: 3rem;
+    height: auto;
   }
 
   @media (max-width: 768px) {
@@ -44,9 +45,16 @@ const Login = () => {
         className="home-img"
         src="/assets/imgs/friends.webp"
         alt="home-img"
+        width={400}
       />
       <div className="form-container">
-        <img className="logo" src="/assets/imgs/logo.png" alt="logo" />
+        <img
+          className="logo"
+          src="/assets/imgs/logo.png"
+          alt="logo"
+          width={596}
+          height={76}
+        />
         <LoginForm />
       </div>
     </LoginSectionStyled>
