@@ -11,6 +11,7 @@ export const LoginFormStyled = styled.form`
   div {
     width: 100%;
     height: 2rem;
+    margin: 1.5rem auto;
   }
 
   label {
@@ -66,6 +67,7 @@ export const LoginFormStyled = styled.form`
   }
 
   p {
+    color: var(--base-color-contrast);
     text-align: center;
     font-family: var(--main-font-light);
     font-size: var(--font-size-xxs);
@@ -85,7 +87,7 @@ export const LoginFormStyled = styled.form`
 `;
 
 export const LoginButtonStyled = styled.button`
-  font-family: var(--main-font-regular);
+  font-family: var(--main-font-bold);
   font-size: var(--font-size-s);
   background-color: var(--main-color);
   color: var(--base-color-text-light);
