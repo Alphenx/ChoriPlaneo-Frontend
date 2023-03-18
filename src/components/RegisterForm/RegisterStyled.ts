@@ -11,7 +11,7 @@ export const RegisterFormStyled = styled.form`
   div {
     width: 100%;
     height: 2rem;
-    margin: 1rem 0;
+    margin-bottom: 1rem;
   }
 
   label {
@@ -53,6 +53,7 @@ export const RegisterFormStyled = styled.form`
       background-color: var(--base-color-bg);
       border-radius: var(--radius-xs);
       padding: 0.5rem;
+
       :focus {
         border: none;
         outline: var(--border-m) var(--main-color);
@@ -67,6 +68,7 @@ export const RegisterFormStyled = styled.form`
   }
 
   p {
+    color: var(--base-color-contrast);
     text-align: center;
     font-family: var(--main-font-light);
     font-size: var(--font-size-xxs);
@@ -86,10 +88,10 @@ export const RegisterFormStyled = styled.form`
 `;
 
 export const RegisterButtonStyled = styled.button`
-  font-family: var(--main-font-regular);
+  font-family: var(--main-font-bold);
   font-size: var(--font-size-s);
   background-color: var(--main-color);
-  color: var(--main-color-light);
+  color: var(--base-color-text-light);
   border: none;
   border-radius: var(--radius-l);
   padding: 1rem;
