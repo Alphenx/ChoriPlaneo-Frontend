@@ -1,4 +1,5 @@
 import { rest } from 'msw';
+import { plansFullFilledResponse } from './plans-mocks';
 
 export const handlers = [
   rest.post(
@@ -40,6 +41,22 @@ export const handlers = [
           msg: 'Your password is invalid or this account does not exist.',
         }),
       );
+    },
+  ),
+
+  rest.get(
+    `https://adrian-garcia-final-project-back-202301.onrender.com/api/v1/plans`,
+    async (_req, res, ctx) => {
+      return res(ctx.status(200), ctx.json(plansFullFilledResponse));
+    },
+  ),
+];
+
+export const errorHandlers = [
+  rest.get(
+    `https://adrian-garcia-final-project-back-202301.onrender.com/api/v1/plans`,
+    (_req, res, ctx) => {
+      return res.once(ctx.status(500), ctx.json(null));
     },
   ),
 ];
