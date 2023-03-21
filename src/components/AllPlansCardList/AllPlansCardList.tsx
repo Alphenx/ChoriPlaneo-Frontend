@@ -19,7 +19,7 @@ const PlansCardList = styled.ul`
 `;
 
 const AllPlansCardList = () => {
-  const { plans, status, responseMsg } = useAppSelector(selectPlans);
+  const { plans, status } = useAppSelector(selectPlans);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
