@@ -22,7 +22,7 @@ const RegisterForm = () => {
   const generateFeedback = () => {
     switch (registerStatus) {
       case AuthStatus.LOADING:
-        return <Loading />;
+        return <Loading width={80} />;
       case AuthStatus.SUCCESS:
         return (
           <FeedBackStyled authStatus={AuthStatus.SUCCESS}>
