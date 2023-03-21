@@ -1,5 +1,13 @@
 import styled from 'styled-components';
 
+export const PlansCardList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 30px;
+  margin-bottom: 10rem;
+`;
+
 interface StatusProps {
   status: 'idle' | 'loading' | 'failed';
 }
@@ -7,8 +15,7 @@ interface StatusProps {
 export const FeedBackStyled = styled.div<StatusProps>`
   padding: 0 2rem;
   h3 {
-    background-color: ${props =>
-      props.status === 'idle' ? 'var(--green-color)' : 'var(--red-color)'};
+    background-color: var(--red-color);
 
     font-family: var(--main-font-light);
     font-size: var(--font-size-xs);

@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import styled from 'styled-components';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import {
   getAllPlansAsync,
@@ -8,15 +7,7 @@ import {
 import Card from '../../shared/components/Card/Card';
 import Loading from '../../shared/components/Loading/Loading';
 import { APIStatus } from '../../shared/models/api-status';
-import { FeedBackStyled } from '../../styles/feedback';
-
-const PlansCardList = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  gap: 30px;
-  margin-bottom: 10rem;
-`;
+import { FeedBackStyled, PlansCardList } from './AllPlansCardListStyled';
 
 const AllPlansCardList = () => {
   const { plans, status } = useAppSelector(selectPlans);
