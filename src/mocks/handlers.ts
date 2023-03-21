@@ -47,13 +47,6 @@ export const handlers = [
   rest.get(
     `https://adrian-garcia-final-project-back-202301.onrender.com/api/v1/plans`,
     async (_req, res, ctx) => {
-      if (plansFullFilledResponse.failed) {
-        return res(
-          ctx.status(500),
-          ctx.json({ msg: 'Error while fetching plans' }),
-        );
-      }
-
       return res(ctx.status(200), ctx.json(plansFullFilledResponse));
     },
   ),
