@@ -68,27 +68,3 @@ export const CardStyled = styled.article`
     display: flex;
   }
 `;
-
-interface ButtonStyleProps {
-  styles: 'filled' | 'outlined';
-}
-
-export const CardButtonStyled = styled.button<ButtonStyleProps>`
-  background-color: ${props =>
-    props.styles === 'outlined' ? 'transparent' : 'var(--main-color)'};
-
-  color: ${props =>
-    props.styles === 'outlined'
-      ? 'var(--main-color)'
-      : 'var(--base-color-text-light)'};
-
-  border: var(--main-color) 2px solid;
-  font-size: var(--font-size-s);
-  font-family: var(--main-font-bold);
-  border-radius: var(--radius-l);
-  padding: 0.5rem 1rem;
-  :hover {
-    cursor: pointer;
-    scale: 1.08;
-  }
-`;

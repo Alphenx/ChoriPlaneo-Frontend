@@ -22,7 +22,7 @@ const Card: FC<CardProps> = ({ plan }) => {
       <img
         src={plan.planImgURL ?? '/assets/imgs/default-img.png'}
         width={300}
-        alt="img"
+        alt="plan-img"
       />
 
       <div className="plan-info">
