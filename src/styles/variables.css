@@ -60,6 +60,8 @@ html[data-theme='dark'] {
   --base-color-contrast: #ffffff;
   --base-color-text-light: #ffffff;
   --base-color-text-dark: #0e1319;
+  --second-color-light: #dacee3;
+  --main-color-light: #445e7e;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -69,5 +71,6 @@ html[data-theme='dark'] {
     --base-color-contrast: #ffffff;
     --base-color-text-light: #ffffff;
     --base-color-text-dark: #0e1319;
+    --second-color-light: #6c3a8e;
   }
 }
