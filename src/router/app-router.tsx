@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import AppLayout from '../layout/AppLayout/AppLayout';
 import MainLayout from '../layout/MainLayout/MainLayout';
+import CreatePlan from '../pages/CreatePlan/CreatePlan';
 import Home from '../pages/Home/Home';
 import Login from '../pages/Login/Login';
 import NotFound from '../pages/NotFound/NotFound';
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
       {
         path: '',
         element: <Home />,
+      },
+      {
+        path: 'create-plan',
+        element: <CreatePlan />,
       },
     ],
   },

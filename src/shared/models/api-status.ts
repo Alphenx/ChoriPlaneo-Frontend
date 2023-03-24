@@ -10,3 +10,10 @@ export enum AuthStatus {
   SUCCESS = 'idle',
   NOT_USED = 'notUsed',
 }
+
+export enum PlanStatus {
+  LOADING = 'loading',
+  ERROR = 'failed',
+  SUCCESS = 'idle',
+  NOT_USED = 'notUsed',
+}
