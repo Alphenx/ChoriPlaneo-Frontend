@@ -9,7 +9,7 @@ describe('When Card component is rendered', () => {
     title: 'Choriplan 1',
     description: 'Description 1',
     place: 'Málaga, Spain',
-    status: true,
+    status: 'public',
     date: new Date(),
     registeredUsers: [],
     creatorId: '',
