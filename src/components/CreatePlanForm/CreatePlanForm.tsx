@@ -3,12 +3,13 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { createPlanAsync, selectPlans } from '../../features/plans/plans-slice';
 import Loading from '../../shared/components/Loading/Loading';
 import { PlanStatus } from '../../shared/models/api-status';
-import { FeedBackStyled } from '../MyPlansCardList/MyPlansCardListStyled';
+
 import {
   CreateFormStyled,
   InputLabelStyled,
   CheckboxLabelStyled,
   CreateButtonStyled,
+  FeedBackStyled,
 } from './CreatePlanFormStyled';
 
 const CreatePlanForm = () => {
