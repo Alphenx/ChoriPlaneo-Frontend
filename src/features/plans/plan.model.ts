@@ -5,7 +5,7 @@ export interface Plan {
   title: string;
   description: string;
   place: string;
-  status: boolean;
+  status: string;
   date: Date;
   planImgURL: string;
   registeredUsers: User[];
