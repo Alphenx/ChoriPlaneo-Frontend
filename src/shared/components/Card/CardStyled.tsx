@@ -1,26 +1,52 @@
 import styled from 'styled-components';
 
-export const CardStyled = styled.article`
+interface CardStyledProps {
+  cardType: 'public' | 'myplans' | 'recommended';
+}
+
+export const CardStyled = styled.article<CardStyledProps>`
   color: var(--main-color-contrast);
   background-color: var(--main-color-light);
   border-radius: var(--radius-s);
 
   width: 300px;
 
-  .creator-info {
+  button {
+    height: 40px;
+  }
+
+  .top-label {
     display: flex;
+    justify-content: space-between;
     gap: 20px;
     padding: 0.5rem 1rem;
+    height: 56px;
 
-    img {
-      width: 40px;
-      border-radius: var(--radius-xl);
-      background-color: var(--base-color-text-light);
+    .creator-info {
+      display: ${props => (props.cardType !== 'myplans' ? 'flex' : 'none')};
+      gap: 1rem;
+      img {
+        width: 40px;
+        border-radius: var(--radius-xl);
+        background-color: var(--base-color-text-light);
+      }
+      h4 {
+        font-family: var(--main-font-bold);
+        font-size: var(--font-size-s);
+      }
+      p {
+        font-family: var(--main-font-light);
+        font-size: var(--font-size-xs);
+      }
     }
 
-    p {
-      height: 100%;
-      margin: auto 0;
+    .close-btn {
+      display: ${props => (props.cardType === 'public' ? 'none' : 'block')};
+    }
+
+    .edit-share {
+      display: ${props => (props.cardType === 'myplans' ? 'flex' : 'none')};
+      gap: 1rem;
     }
   }
 
@@ -30,14 +56,12 @@ export const CardStyled = styled.article`
     object-fit: cover;
   }
   .plan-info {
-    padding: 0.5rem 1rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     gap: 5px;
 
     text-overflow: ellipsis;
-
-    /* Needed to make it work */
     overflow: hidden;
     white-space: nowrap;
 
@@ -61,10 +85,11 @@ export const CardStyled = styled.article`
     }
   }
 
-  .buttons {
-    margin: 0.5rem auto;
+  .bottom-label {
+    display: ${props => (props.cardType !== 'public' ? 'none' : 'flex')};
+    gap: 2rem;
+    padding: 0.5rem 1rem 1rem;
     justify-content: space-between;
     width: 100%;
-    display: flex;
   }
 `;
