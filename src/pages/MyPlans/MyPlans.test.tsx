@@ -2,13 +2,13 @@ import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 import { store } from '../../app/store';
-import AppLayout from './AppLayout';
+import MyPlans from './MyPlans';
 
-test('render page', () => {
+test('Given a MyPlans page, when it renders then it should show user plans', () => {
   render(
     <Provider store={store}>
       <MemoryRouter>
-        <AppLayout />
+        <MyPlans />
       </MemoryRouter>
     </Provider>,
   );
