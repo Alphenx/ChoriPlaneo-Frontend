@@ -85,10 +85,14 @@ export const authUserSlice = createSlice({
 
     builder.addCase(
       sendUserForLogInAsync.fulfilled,
-      (state, action: PayloadAction<AuthResponse>) => {
+      (
+        state,
+        action: PayloadAction<AuthResponse, string, { arg: { email: string } }>,
+      ) => {
         state.status = APIStatus.IDLE;
         state.loginStatus = AuthStatus.SUCCESS;
         state.responseMsg = action.payload.msg;
+        sessionStorage.setItem('userEmail', action.meta.arg.email);
         sessionStorage.setItem('accessToken', action.payload.accessToken);
       },
     );
