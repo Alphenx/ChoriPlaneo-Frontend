@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const HeaderStyled = styled.header`
   width: 100%;
   max-width: 1440px;
+  z-index: 100;
 
   background-color: var(--base-color-bg);
   opacity: 0.9;
@@ -15,7 +16,7 @@ export const HeaderStyled = styled.header`
   display: flex;
   justify-content: space-between;
   padding: 0 2rem;
-  margin: 0 auto 3rem;
+  margin: 0 auto 2rem;
   .logo {
     width: 200px;
     position: relative;
@@ -49,7 +50,7 @@ export const HeaderStyled = styled.header`
 
     h2 {
       color: var(--base-color-contrast);
-      font-size: var(--font-size-s);
+      font-size: var(--font-size-xs);
     }
 
     a {
