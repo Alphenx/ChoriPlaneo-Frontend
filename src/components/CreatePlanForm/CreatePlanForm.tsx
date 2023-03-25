@@ -15,7 +15,7 @@ import {
 const CreatePlanForm = () => {
   const [image, setImage] = useState('');
   const dispatch = useAppDispatch();
-  const { planStatus, responseMsg } = useAppSelector(selectPlans);
+  const { createPlanStatus, responseMsg } = useAppSelector(selectPlans);
 
   const onImageChange = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -24,7 +24,7 @@ const CreatePlanForm = () => {
   };
 
   const generateFeedback = () => {
-    switch (planStatus) {
+    switch (createPlanStatus) {
       case PlanStatus.LOADING:
         return <Loading width={200} />;
       case PlanStatus.SUCCESS:
@@ -39,9 +39,8 @@ const CreatePlanForm = () => {
             <h3>{responseMsg}</h3>
           </FeedBackStyled>
         );
-
-      default:
-        return;
+      case PlanStatus.NOT_USED:
+        return <></>;
     }
   };
 
@@ -53,7 +52,7 @@ const CreatePlanForm = () => {
         dispatch(createPlanAsync(e.currentTarget));
       }}
     >
-      <div>{generateFeedback()}</div>
+      {generateFeedback()}
       <label className="plan-img">
         <span>Add your plan image</span>
         <img

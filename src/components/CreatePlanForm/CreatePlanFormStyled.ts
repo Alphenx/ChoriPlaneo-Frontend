@@ -5,7 +5,7 @@ export const CreateFormStyled = styled.form`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 1rem;
+  padding: 0 1rem;
   gap: 1.5rem;
   max-width: 600px;
   margin: 0 auto;
@@ -203,7 +203,7 @@ export const FeedBackStyled = styled.div<StatusProps>`
         : 'var(--red-color)'};
 
     font-family: var(--main-font-light);
-    font-size: var(--font-size-xs);
+    font-size: var(--font-size-xxs);
     color: var(--base-color-text-light);
 
     border: none;
@@ -213,6 +213,6 @@ export const FeedBackStyled = styled.div<StatusProps>`
     width: 100%;
     max-width: 800px;
     align-self: center;
-    margin: 2rem auto;
+    margin: 1.5rem auto 0;
   }
 `;

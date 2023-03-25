@@ -24,6 +24,7 @@ export const renderWithProviders = (
         plans: [],
         status: APIStatus.IDLE,
         planStatus: PlanStatus.NOT_USED,
+        createPlanStatus: PlanStatus.NOT_USED,
         responseMsg: '',
       },
     },
