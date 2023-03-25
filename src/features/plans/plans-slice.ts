@@ -20,6 +20,7 @@ export interface PlansState {
   plans: Plan[];
   status: APIStatus;
   planStatus: PlanStatus;
+  createPlanStatus: PlanStatus;
   responseMsg: string | undefined;
 }
 
@@ -27,6 +28,7 @@ const INITIAL_STATE: PlansState = {
   plans: [],
   status: APIStatus.IDLE,
   planStatus: PlanStatus.NOT_USED,
+  createPlanStatus: PlanStatus.NOT_USED,
   responseMsg: '',
 };
 
@@ -82,21 +84,21 @@ export const plansSlice = createSlice({
     });
     builder.addCase(createPlanAsync.pending, state => {
       state.status = APIStatus.LOADING;
-      state.planStatus = PlanStatus.LOADING;
+      state.createPlanStatus = PlanStatus.LOADING;
     });
 
     builder.addCase(
       createPlanAsync.fulfilled,
       (state, action: PayloadAction<CreatePlanResponse>) => {
         state.status = APIStatus.IDLE;
-        state.planStatus = PlanStatus.SUCCESS;
+        state.createPlanStatus = PlanStatus.SUCCESS;
         state.responseMsg = action.payload.msg;
       },
     );
 
     builder.addCase(createPlanAsync.rejected, (state, action) => {
       state.status = APIStatus.ERROR;
-      state.planStatus = PlanStatus.ERROR;
+      state.createPlanStatus = PlanStatus.ERROR;
       state.responseMsg = action.error.message;
     });
   },
