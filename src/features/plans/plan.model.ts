@@ -1,12 +1,13 @@
 import User from '../auth/user.model';
 
+type Creator = Pick<User, 'email' | 'name'> & { profileURL?: string };
 export interface Plan {
-  creatorId: string;
+  creator: Creator;
   title: string;
   description: string;
   place: string;
   status: string;
   date: Date;
-  planImgURL: string;
+  planImgURL?: string;
   registeredUsers: User[];
 }
