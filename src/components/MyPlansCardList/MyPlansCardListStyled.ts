@@ -1,12 +1,16 @@
 import styled from 'styled-components';
 
 export const PlansCardList = styled.ul`
+  .list-title {
+    width: 100%;
+    text-align: center;
+  }
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   gap: 30px;
   margin-top: 2rem;
-  margin-bottom: 10rem;
+  margin-bottom: 4rem;
 `;
 
 interface StatusProps {

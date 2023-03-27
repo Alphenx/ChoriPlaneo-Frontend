@@ -24,13 +24,11 @@ const AllPlansCardList = () => {
       case APIStatus.IDLE:
         return (
           <PlansCardList>
-            {plans
-              .filter(plan => plan.status)
-              .map(plan => (
-                <li key={plan.title}>
-                  <Card plan={plan} cardType={'public'} />
-                </li>
-              ))}
+            {plans.map(plan => (
+              <li key={plan.title}>
+                <Card plan={plan} cardType={'public'} />
+              </li>
+            ))}
           </PlansCardList>
         );
       case APIStatus.ERROR:

@@ -1,14 +1,20 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 import { APIStatus, PlanStatus } from '../../shared/models/api-status';
+import { UserInfo } from '../auth/user.model';
 import { Plan } from './plan.model';
-import { createNewPlan, getAllPlans } from './plans-api';
+import { createNewPlan, getAllPlans, getUserInfo } from './plans-api';
 
 const STATE_NAME = 'plans';
 
 export interface PlansResponse {
   msg: string;
   plans: Plan[];
+}
+
+export interface UserInfoResponse {
+  msg: string;
+  users: UserInfo;
 }
 
 export interface CreatePlanResponse {
@@ -18,16 +24,28 @@ export interface CreatePlanResponse {
 
 export interface PlansState {
   plans: Plan[];
+  user: UserInfo;
   status: APIStatus;
   planStatus: PlanStatus;
+  userInfoStatus: PlanStatus;
   createPlanStatus: PlanStatus;
   responseMsg: string | undefined;
 }
 
 const INITIAL_STATE: PlansState = {
   plans: [],
+  user: {
+    name: '',
+    email: '',
+    profileURL: '',
+    friends: [],
+    recommendedPlans: [],
+    savedPlans: [],
+    createdPlans: [],
+  },
   status: APIStatus.IDLE,
   planStatus: PlanStatus.NOT_USED,
+  userInfoStatus: PlanStatus.NOT_USED,
   createPlanStatus: PlanStatus.NOT_USED,
   responseMsg: '',
 };
@@ -37,6 +55,18 @@ export const getAllPlansAsync = createAsyncThunk(
   async () => {
     const apiResponse = await getAllPlans();
     const data: PlansResponse = await apiResponse.json();
+    if (!apiResponse.ok) {
+      throw new Error(`${data.msg}`);
+    }
+    return data;
+  },
+);
+
+export const getUserInfoAsync = createAsyncThunk(
+  `${STATE_NAME}/getUserInfo`,
+  async () => {
+    const apiResponse = await getUserInfo();
+    const data: UserInfoResponse = await apiResponse.json();
     if (!apiResponse.ok) {
       throw new Error(`${data.msg}`);
     }
@@ -62,11 +92,11 @@ export const plansSlice = createSlice({
   initialState: INITIAL_STATE,
   reducers: {},
   extraReducers(builder) {
+    // GET ALL PLANS
     builder.addCase(getAllPlansAsync.pending, state => {
       state.status = APIStatus.LOADING;
       state.planStatus = PlanStatus.LOADING;
     });
-
     builder.addCase(
       getAllPlansAsync.fulfilled,
       (state, action: PayloadAction<PlansResponse>) => {
@@ -76,17 +106,17 @@ export const plansSlice = createSlice({
         state.responseMsg = action.payload.msg;
       },
     );
-
     builder.addCase(getAllPlansAsync.rejected, (state, action) => {
       state.status = APIStatus.ERROR;
       state.planStatus = PlanStatus.ERROR;
       state.responseMsg = action.error.message;
     });
+
+    // CREATE PLAN
     builder.addCase(createPlanAsync.pending, state => {
       state.status = APIStatus.LOADING;
       state.createPlanStatus = PlanStatus.LOADING;
     });
-
     builder.addCase(
       createPlanAsync.fulfilled,
       (state, action: PayloadAction<CreatePlanResponse>) => {
@@ -95,10 +125,29 @@ export const plansSlice = createSlice({
         state.responseMsg = action.payload.msg;
       },
     );
-
     builder.addCase(createPlanAsync.rejected, (state, action) => {
       state.status = APIStatus.ERROR;
       state.createPlanStatus = PlanStatus.ERROR;
+      state.responseMsg = action.error.message;
+    });
+
+    // GET USER INFO
+    builder.addCase(getUserInfoAsync.pending, state => {
+      state.status = APIStatus.LOADING;
+      state.userInfoStatus = PlanStatus.LOADING;
+    });
+    builder.addCase(
+      getUserInfoAsync.fulfilled,
+      (state, action: PayloadAction<UserInfoResponse>) => {
+        state.status = APIStatus.IDLE;
+        state.userInfoStatus = PlanStatus.SUCCESS;
+        state.user = action.payload.users;
+        state.responseMsg = action.payload.msg;
+      },
+    );
+    builder.addCase(getUserInfoAsync.rejected, (state, action) => {
+      state.status = APIStatus.ERROR;
+      state.userInfoStatus = PlanStatus.ERROR;
       state.responseMsg = action.error.message;
     });
   },

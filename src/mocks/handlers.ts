@@ -1,5 +1,8 @@
 import { rest } from 'msw';
-import { plansFullFilledResponse } from './plans-mocks';
+import {
+  plansFullFilledResponse,
+  userInfoFullFilledResponse,
+} from './plans-mocks';
 
 export const handlers = [
   rest.post(
@@ -50,11 +53,24 @@ export const handlers = [
       return res(ctx.status(200), ctx.json(plansFullFilledResponse));
     },
   ),
+
+  rest.get(
+    `https://adrian-garcia-final-project-back-202301.onrender.com/api/v1/users/info`,
+    async (_req, res, ctx) => {
+      return res(ctx.status(200), ctx.json(userInfoFullFilledResponse));
+    },
+  ),
 ];
 
 export const errorHandlers = [
   rest.get(
     `https://adrian-garcia-final-project-back-202301.onrender.com/api/v1/plans`,
+    (_req, res, ctx) => {
+      return res.once(ctx.status(500), ctx.json(null));
+    },
+  ),
+  rest.get(
+    `https://adrian-garcia-final-project-back-202301.onrender.com/api/v1/users/info`,
     (_req, res, ctx) => {
       return res.once(ctx.status(500), ctx.json(null));
     },
