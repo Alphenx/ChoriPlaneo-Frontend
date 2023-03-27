@@ -92,7 +92,6 @@ export const authUserSlice = createSlice({
         state.status = APIStatus.IDLE;
         state.loginStatus = AuthStatus.SUCCESS;
         state.responseMsg = action.payload.msg;
-        sessionStorage.setItem('userEmail', action.meta.arg.email);
         sessionStorage.setItem('accessToken', action.payload.accessToken);
       },
     );
