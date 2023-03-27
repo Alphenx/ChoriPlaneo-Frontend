@@ -78,6 +78,26 @@ describe('Given a CreatePlan form component', () => {
       );
     });
   });
+  test('When a user clicks Create new plan and status is not refresh', async () => {
+    globalThis.fetch = jest.fn().mockResolvedValue({
+      ok: true,
+      json: jest.fn().mockResolvedValue({
+        msg: '',
+      }),
+    });
+    renderWithProviders(
+      <Provider store={store}>
+        <CreatePlanForm />
+      </Provider>,
+    );
+    const createPlanButton = screen.getByText('Create plan');
+    fireEvent.click(createPlanButton);
+
+    await waitFor(() => {
+      const message = screen.getByRole('heading');
+      expect(message).toHaveTextContent('');
+    });
+  });
 
   test('When a user upload a image, then file input and preview img should change', () => {
     const mockCreateObjectURL = jest.fn();

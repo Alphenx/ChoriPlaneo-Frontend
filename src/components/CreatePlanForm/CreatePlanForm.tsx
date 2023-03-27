@@ -1,6 +1,7 @@
 import { ChangeEvent, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { createPlanAsync, selectPlans } from '../../features/plans/plans-slice';
+import Button from '../../shared/components/Button/Button';
 import Loading from '../../shared/components/Loading/Loading';
 import { PlanStatus } from '../../shared/models/api-status';
 
@@ -8,7 +9,6 @@ import {
   CreateFormStyled,
   InputLabelStyled,
   CheckboxLabelStyled,
-  CreateButtonStyled,
   FeedBackStyled,
 } from './CreatePlanFormStyled';
 
@@ -29,18 +29,16 @@ const CreatePlanForm = () => {
         return <Loading width={200} />;
       case PlanStatus.SUCCESS:
         return (
-          <FeedBackStyled status={PlanStatus.SUCCESS}>
+          <FeedBackStyled msg={responseMsg} status={PlanStatus.SUCCESS}>
             <h3>{responseMsg}</h3>
           </FeedBackStyled>
         );
       case PlanStatus.ERROR:
         return (
-          <FeedBackStyled status={PlanStatus.ERROR}>
+          <FeedBackStyled msg={responseMsg} status={PlanStatus.ERROR}>
             <h3>{responseMsg}</h3>
           </FeedBackStyled>
         );
-      case PlanStatus.NOT_USED:
-        return <></>;
     }
   };
 
@@ -125,14 +123,12 @@ const CreatePlanForm = () => {
         <p>Public</p>
       </CheckboxLabelStyled>
 
-      <CreateButtonStyled
-        styles="outlined"
-        width="200px"
-        padding="0.5rem 1rem"
+      <Button
         type="submit"
-      >
-        Create plan
-      </CreateButtonStyled>
+        value="Create plan"
+        width={'200px'}
+        styles={'filled'}
+      />
     </CreateFormStyled>
   );
 };
