@@ -22,8 +22,18 @@ export const renderWithProviders = (
       },
       plans: {
         plans: [],
+        user: {
+          name: '',
+          email: '',
+          profileURL: '',
+          friends: [],
+          recommendedPlans: [],
+          savedPlans: [],
+          createdPlans: [],
+        },
         status: APIStatus.IDLE,
         planStatus: PlanStatus.NOT_USED,
+        userInfoStatus: PlanStatus.NOT_USED,
         createPlanStatus: PlanStatus.NOT_USED,
         responseMsg: '',
       },
