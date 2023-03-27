@@ -70,30 +70,6 @@ export const CreateFormStyled = styled.form`
   }
 `;
 
-interface ButtonProps {
-  styles: string;
-  width: string;
-  padding: string;
-}
-
-export const CreateButtonStyled = styled.button<ButtonProps>`
-  margin: 2rem auto;
-  background-color: 'transparent';
-
-  color: var(--main-color);
-  width: ${props => props.width};
-  padding: ${props => props.padding};
-
-  border: var(--main-color) 2px solid;
-  font-size: var(--font-size-s);
-  font-family: var(--main-font-bold);
-  border-radius: var(--radius-l);
-  :hover {
-    cursor: pointer;
-    scale: 1.08;
-  }
-`;
-
 export const InputLabelStyled = styled.label`
   display: flex;
   flex-direction: column;
@@ -192,6 +168,7 @@ export const CheckboxLabelStyled = styled.label`
 `;
 interface StatusProps {
   status: 'idle' | 'loading' | 'failed';
+  msg: string | undefined;
 }
 
 export const FeedBackStyled = styled.div<StatusProps>`
@@ -199,7 +176,9 @@ export const FeedBackStyled = styled.div<StatusProps>`
   h3 {
     background-color: ${props =>
       props.status === PlanStatus.SUCCESS
-        ? 'var(--green-color)'
+        ? props.msg
+          ? 'var(--green-color)'
+          : 'transparent'
         : 'var(--red-color)'};
 
     font-family: var(--main-font-light);
