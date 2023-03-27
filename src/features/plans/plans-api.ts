@@ -12,6 +12,20 @@ export const getAllPlans = async () => {
   return response;
 };
 
+export const getUserInfo = async () => {
+  const response = await fetch(
+    `https://adrian-garcia-final-project-back-202301.onrender.com/api/v1/users/info`,
+    {
+      headers: {
+        Authorization: `Bearer ${sessionStorage.getItem('accessToken')}`,
+        'Content-Type': 'application/json',
+      },
+    },
+  );
+
+  return response;
+};
+
 export const createNewPlan = async (newPlan: FormData) => {
   const response = await fetch(
     'https://adrian-garcia-final-project-back-202301.onrender.com/api/v1/plans',
