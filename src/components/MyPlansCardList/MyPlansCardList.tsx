@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import {
-  getAllPlansAsync,
+  getUserInfoAsync,
   selectPlans,
 } from '../../features/plans/plans-slice';
 import Card from '../../shared/components/Card/Card';
@@ -10,12 +10,11 @@ import { APIStatus } from '../../shared/models/api-status';
 import { FeedBackStyled, PlansCardList } from './MyPlansCardListStyled';
 
 const MyPlansCardList = () => {
-  const user = sessionStorage.getItem('userEmail');
-  const { plans, status } = useAppSelector(selectPlans);
+  const { user, status } = useAppSelector(selectPlans);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(getAllPlansAsync());
+    dispatch(getUserInfoAsync());
   }, [dispatch]);
 
   const generateCards = () => {
@@ -24,15 +23,36 @@ const MyPlansCardList = () => {
         return <Loading width={200} />;
       case APIStatus.IDLE:
         return (
-          <PlansCardList>
-            {plans
-              .filter(plan => plan.creator.email === user)
-              .map(plan => (
-                <li key={plan.title} data-testid="listitem">
-                  <Card plan={plan} cardType={'myplans'} />
-                </li>
-              ))}
-          </PlansCardList>
+          <>
+            {user.createdPlans.length !== 0 ? (
+              <PlansCardList>
+                <h2 className="list-title">Created Plans</h2>
+                {user.createdPlans.map(plan => (
+                  <li key={plan.title} data-testid="listitem">
+                    <Card plan={plan} cardType={'myplans'} />
+                  </li>
+                ))}
+              </PlansCardList>
+            ) : (
+              <FeedBackStyled status={APIStatus.ERROR}>
+                <h3>You don't have any plan, try to create a new one!</h3>
+              </FeedBackStyled>
+            )}
+            {user.savedPlans.length !== 0 ? (
+              <PlansCardList>
+                <h2 className="list-title">Saved Plans</h2>
+                {user.savedPlans.map(plan => (
+                  <li key={plan.title} data-testid="listitem">
+                    <Card plan={plan} cardType={'recommended'} />
+                  </li>
+                ))}
+              </PlansCardList>
+            ) : (
+              <FeedBackStyled status={APIStatus.ERROR}>
+                <h3>You don't have any saved plans, checkout public plans!</h3>
+              </FeedBackStyled>
+            )}
+          </>
         );
       case APIStatus.ERROR:
         return (
