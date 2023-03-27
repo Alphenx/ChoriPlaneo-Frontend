@@ -11,6 +11,7 @@ interface ButtonStyledProps {
 interface ButtonProps extends ButtonStyledProps {
   value: string | any;
   className?: string;
+  type?: 'button' | 'reset' | 'submit';
 }
 
 export const ButtonStyled = styled.button<ButtonStyledProps>`
@@ -25,6 +26,7 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
   width: ${props => props.width};
   padding: ${props => props.padding};
 
+  margin: 0 auto;
   height: 40px;
   border: var(--main-color) 2px solid;
   font-size: var(--font-size-s);
@@ -51,6 +53,7 @@ const Button: FC<ButtonProps> = ({
   padding = '0.5rem 1rem',
   value,
   iconSize = '1.25rem',
+  type = 'button',
 }) => {
   return (
     <ButtonStyled
@@ -58,6 +61,7 @@ const Button: FC<ButtonProps> = ({
       width={width}
       padding={padding}
       iconSize={iconSize}
+      type={type}
     >
       {value}
     </ButtonStyled>
