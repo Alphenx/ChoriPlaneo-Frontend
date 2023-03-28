@@ -1,36 +1,35 @@
 import { createBrowserRouter } from 'react-router-dom';
 import AppLayout from '../layout/AppLayout/AppLayout';
-import MainLayout from '../layout/MainLayout/MainLayout';
 import CreatePlan from '../pages/CreatePlan/CreatePlan';
 import Home from '../pages/Home/Home';
-import Login from '../pages/Login/Login';
 import MyPlans from '../pages/MyPlans/MyPlans';
 import NotFound from '../pages/NotFound/NotFound';
-import Register from '../pages/Register/Register';
+import Auth from '../pages/Auth/Auth';
+import Detail from '../pages/Detail/Detail';
 
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <MainLayout />,
+    element: <Auth />,
     errorElement: <NotFound />,
     children: [
       {
         path: '',
-        element: <Login />,
+        element: <Auth />,
       },
       {
         path: 'register',
-        element: <Register />,
+        element: <Auth />,
       },
     ],
   },
   {
-    path: '/app',
+    path: '/',
     element: <AppLayout />,
     errorElement: <NotFound />,
     children: [
       {
-        path: '',
+        path: 'home',
         element: <Home />,
       },
       {
@@ -40,6 +39,10 @@ export const router = createBrowserRouter([
       {
         path: 'my-plans',
         element: <MyPlans />,
+      },
+      {
+        path: 'detail/:cardType/:planId',
+        element: <Detail />,
       },
     ],
   },
