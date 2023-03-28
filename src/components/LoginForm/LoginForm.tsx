@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import {
   selectAuthSlice,
@@ -17,6 +18,13 @@ import {
 const LoginForm = () => {
   const dispatch = useAppDispatch();
   const { loginStatus, responseMsg } = useAppSelector(selectAuthSlice);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (loginStatus === AuthStatus.SUCCESS) {
+      navigate('/home', { replace: true });
+    }
+  }, [loginStatus, navigate]);
 
   const generateFeedback = () => {
     switch (loginStatus) {
@@ -74,7 +82,7 @@ const LoginForm = () => {
       </label>
 
       <p className="login-link">
-        You don't have an account? <a href="/register">Sign up</a>
+        You don't have an account? <Link to={'/register'}>Sign up</Link>
       </p>
       <p>
         By continuing, you agree to our Terms of Service and Privacy Policy.

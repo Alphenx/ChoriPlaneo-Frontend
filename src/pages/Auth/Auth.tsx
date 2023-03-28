@@ -1,9 +1,11 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import LoginForm from '../../components/LoginForm/LoginForm';
+import RegisterForm from '../../components/RegisterForm/RegisterForm';
 import HandleTheme from '../../shared/components/HandleTheme/HandleTheme';
 
-const LoginSectionStyled = styled.section`
+const AuthSectionStyled = styled.section`
   display: flex;
   width: 100%;
   text-align: center;
@@ -19,7 +21,6 @@ const LoginSectionStyled = styled.section`
     width: 50%;
     object-fit: cover;
     height: 100vh;
-    max-height: 700px;
   }
 
   .logo {
@@ -37,9 +38,10 @@ const LoginSectionStyled = styled.section`
   }
 `;
 
-const Login = () => {
+const Auth = () => {
+  const { pathname } = useLocation();
   return (
-    <LoginSectionStyled>
+    <AuthSectionStyled>
       <HandleTheme />
       <img
         className="home-img"
@@ -55,10 +57,10 @@ const Login = () => {
           width={596}
           height={76}
         />
-        <LoginForm />
+        {pathname === '/register' ? <RegisterForm /> : <LoginForm />}
       </div>
-    </LoginSectionStyled>
+    </AuthSectionStyled>
   );
 };
 
-export default Login;
+export default Auth;

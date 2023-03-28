@@ -1,6 +1,7 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Provider } from 'react-redux';
+import { MemoryRouter } from 'react-router-dom';
 import { store } from '../../app/store';
 import { server } from '../../mocks/server';
 import LoginForm from './LoginForm';
@@ -13,7 +14,9 @@ describe('Given a login form component', () => {
   test('When the user clicks submit button, then it should call a function', async () => {
     render(
       <Provider store={store}>
-        <LoginForm />
+        <MemoryRouter>
+          <LoginForm />
+        </MemoryRouter>
       </Provider>,
     );
     const submitFn = jest.fn();
@@ -27,7 +30,9 @@ describe('Given a login form component', () => {
   test('When a user tries to login with a valid name, email and password, then he should be registered', async () => {
     render(
       <Provider store={store}>
-        <LoginForm />
+        <MemoryRouter>
+          <LoginForm />
+        </MemoryRouter>
       </Provider>,
     );
 
@@ -48,7 +53,9 @@ describe('Given a login form component', () => {
   test('When a user tries to log in and user info is incorrect, then he should see an error', async () => {
     render(
       <Provider store={store}>
-        <LoginForm />
+        <MemoryRouter>
+          <LoginForm />
+        </MemoryRouter>
       </Provider>,
     );
 

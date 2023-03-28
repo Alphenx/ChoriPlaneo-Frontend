@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import {
@@ -112,13 +113,13 @@ const RegisterForm = () => {
       </label>
 
       <p className="login-link">
-        Already have an account? <a href="/">Log in</a>
+        Already have an account? <Link to={'/'}>Log in</Link>
       </p>
       <p>
         By continuing, you agree to our Terms of Service and Privacy Policy.
       </p>
 
-      <RegisterButtonStyled type="submit">Sign in</RegisterButtonStyled>
+      <RegisterButtonStyled type="submit">Sign up</RegisterButtonStyled>
     </RegisterFormStyled>
   );
 };
