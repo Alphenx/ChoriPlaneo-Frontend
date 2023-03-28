@@ -4,6 +4,7 @@ import { server } from '../../mocks/server';
 import RegisterForm from './RegisterForm';
 import userEvent from '@testing-library/user-event';
 import { store } from '../../app/store';
+import { MemoryRouter } from 'react-router-dom';
 
 describe('Given a register form component', () => {
   beforeAll(() => server.listen());
@@ -12,7 +13,9 @@ describe('Given a register form component', () => {
   test('When the component is rendered, then it should show 4 inputs', async () => {
     render(
       <Provider store={store}>
-        <RegisterForm />
+        <MemoryRouter>
+          <RegisterForm />
+        </MemoryRouter>
       </Provider>,
     );
 
@@ -24,7 +27,9 @@ describe('Given a register form component', () => {
   test('When the user clicks submit button, then it should call a function', async () => {
     render(
       <Provider store={store}>
-        <RegisterForm />
+        <MemoryRouter>
+          <RegisterForm />
+        </MemoryRouter>
       </Provider>,
     );
     const submitFn = jest.fn();
@@ -38,7 +43,9 @@ describe('Given a register form component', () => {
   test('When a user tries to register with a valid name, email and password, then he should be registered', async () => {
     render(
       <Provider store={store}>
-        <RegisterForm />
+        <MemoryRouter>
+          <RegisterForm />
+        </MemoryRouter>
       </Provider>,
     );
 
@@ -65,7 +72,9 @@ describe('Given a register form component', () => {
   test('When a user tries to register and account already exits, then he should see an error', async () => {
     render(
       <Provider store={store}>
-        <RegisterForm />
+        <MemoryRouter>
+          <RegisterForm />
+        </MemoryRouter>
       </Provider>,
     );
 
@@ -90,7 +99,9 @@ describe('Given a register form component', () => {
   test('When there is an error while registering, then the user should receive an error message as feedback', async () => {
     render(
       <Provider store={store}>
-        <RegisterForm />
+        <MemoryRouter>
+          <RegisterForm />
+        </MemoryRouter>
       </Provider>,
     );
 
@@ -115,7 +126,9 @@ describe('Given a register form component', () => {
   test('When passwords does not match, then the password input should be red', async () => {
     render(
       <Provider store={store}>
-        <RegisterForm />
+        <MemoryRouter>
+          <RegisterForm />
+        </MemoryRouter>
       </Provider>,
     );
 
