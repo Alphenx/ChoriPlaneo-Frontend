@@ -43,7 +43,8 @@ export const HeaderStyled = styled.header`
       color: var(--base-color-contrast);
     }
     .selected {
-      background-color: var(--main-color-light);
+      background-color: var(--main-color);
+      color: var(--base-color-bg);
       width: 100%;
       border-radius: var(--radius-m);
     }
