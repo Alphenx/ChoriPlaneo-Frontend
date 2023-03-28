@@ -40,10 +40,6 @@ export const router = createBrowserRouter([
         path: 'my-plans',
         element: <MyPlans />,
       },
-      {
-        path: 'detail/:cardType/:planId',
-        element: <Detail />,
-      },
     ],
   },
 ]);
