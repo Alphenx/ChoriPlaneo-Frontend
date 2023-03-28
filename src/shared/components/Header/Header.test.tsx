@@ -19,7 +19,7 @@ describe('Given a Header component', () => {
     const linksElements = screen.getAllByRole('link');
 
     expect(logoElement).toBeInTheDocument();
-    expect(linksElements.length).toEqual(5);
+    expect(linksElements.length).toEqual(6);
   });
 
   test('When "Log out" button is clicked, then handleLogout should be called', async () => {
@@ -31,7 +31,6 @@ describe('Given a Header component', () => {
       </Provider>,
     );
     sessionStorage.setItem('accessToken', 'token');
-    sessionStorage.setItem('userEmail', 'user@example.com');
     const logoutButton = screen.getByTestId('Log out');
     const handleLogout = jest.fn();
     fireEvent.click(logoutButton, handleLogout);
@@ -39,10 +38,10 @@ describe('Given a Header component', () => {
     sessionStorage.clear();
   });
 
-  test('When user is at /app path, then Plans should be highlighted', () => {
+  test('When user is at /home path, then Plans should be highlighted', () => {
     render(
       <Provider store={store}>
-        <MemoryRouter initialEntries={['/app']}>
+        <MemoryRouter initialEntries={['/home']}>
           <Header />
         </MemoryRouter>
       </Provider>,
@@ -55,7 +54,7 @@ describe('Given a Header component', () => {
   test('When user is at /my-plans path, then My plans should be highlighted', () => {
     render(
       <Provider store={store}>
-        <MemoryRouter initialEntries={['/app/my-plans']}>
+        <MemoryRouter initialEntries={['/my-plans']}>
           <Header />
         </MemoryRouter>
       </Provider>,

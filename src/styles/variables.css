@@ -61,7 +61,6 @@ html[data-theme='dark'] {
   --base-color-text-light: #ffffff;
   --base-color-text-dark: #0e1319;
   --second-color-light: #dacee3;
-  --main-color-light: #445e7e;
 }
 
 @media (prefers-color-scheme: dark) {
