@@ -88,7 +88,12 @@ const LoginForm = () => {
         By continuing, you agree to our Terms of Service and Privacy Policy.
       </p>
 
-      <LoginButtonStyled type="submit">Log in</LoginButtonStyled>
+      <LoginButtonStyled
+        disabled={loginStatus === AuthStatus.LOADING}
+        type="submit"
+      >
+        Log in
+      </LoginButtonStyled>
     </LoginFormStyled>
   );
 };
