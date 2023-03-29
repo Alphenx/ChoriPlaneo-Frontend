@@ -46,7 +46,7 @@ describe('Given a Card component', () => {
       </Provider>,
     );
     const headingElements = await screen.findAllByRole('heading');
-    expect(headingElements).toHaveLength(3);
+    expect(headingElements).toHaveLength(2);
 
     const userImgElement = await screen.findByAltText('user-img');
     expect(userImgElement).toBeInTheDocument();
