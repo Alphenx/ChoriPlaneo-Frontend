@@ -21,13 +21,11 @@ const Detail = () => {
   const dispatch = useAppDispatch();
   const { plan, status, responseMsg } = useAppSelector(selectPlans);
 
-  const { planId, cardType } = useParams();
-  const planDetailId = planId ?? '';
-  const cardTypeDetail = cardType ?? 'public';
+  const { planId = '', cardType = 'public' } = useParams();
 
   useEffect(() => {
-    dispatch(getPlanByIdAsync(planDetailId));
-  }, [dispatch, planDetailId]);
+    dispatch(getPlanByIdAsync(planId));
+  }, [dispatch, planId]);
 
   const generateFeedback = () => {
     switch (status) {
@@ -49,7 +47,7 @@ const Detail = () => {
   return (
     <DetailStyled>
       {generateFeedback()}
-      <Card plan={plan} cardType={`${cardTypeDetail}`} detail={true} />
+      <Card plan={plan} cardType={`${cardType}`} detail={true} />
     </DetailStyled>
   );
 };
