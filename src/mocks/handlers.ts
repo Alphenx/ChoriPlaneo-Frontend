@@ -1,5 +1,6 @@
 import { rest } from 'msw';
 import {
+  planFullFilledResponse,
   plansFullFilledResponse,
   userInfoFullFilledResponse,
 } from './plans-mocks';
@@ -55,6 +56,16 @@ export const handlers = [
   ),
 
   rest.get(
+    `https://adrian-garcia-final-project-back-202301.onrender.com/api/v1/plans/1234`,
+    async (_req, res, ctx) => {
+      return res(
+        ctx.status(200),
+        ctx.json({ plans: planFullFilledResponse.plans[0] }),
+      );
+    },
+  ),
+
+  rest.get(
     `https://adrian-garcia-final-project-back-202301.onrender.com/api/v1/users/info`,
     async (_req, res, ctx) => {
       return res(ctx.status(200), ctx.json(userInfoFullFilledResponse));
@@ -73,6 +84,15 @@ export const errorHandlers = [
     `https://adrian-garcia-final-project-back-202301.onrender.com/api/v1/users/info`,
     (_req, res, ctx) => {
       return res.once(ctx.status(500), ctx.json(null));
+    },
+  ),
+  rest.get(
+    `https://adrian-garcia-final-project-back-202301.onrender.com/api/v1/plans/1234`,
+    (_req, res, ctx) => {
+      return res(
+        ctx.status(404),
+        ctx.json({ msg: "Ops... this plan don't exists." }),
+      );
     },
   ),
 ];
