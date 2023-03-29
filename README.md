@@ -1,6 +1,8 @@
-# ChoriPlaneo - Planner-app
+### ChoriPlaneo - Planner-app
 
-## Proyecto final Adrián García - BACKEND
+![Choriplaneo logo](/public/assets/imgs/logo.png)
+
+# Proyecto final Adrián García - FRONTEND
 
 ### ChoriPlaneo es la aplicación de la comunidad para compartir momentos y "choriplanear" nuevas actividades con tus amigos.
 
