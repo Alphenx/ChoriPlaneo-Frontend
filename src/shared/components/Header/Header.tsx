@@ -28,10 +28,10 @@ const Header = () => {
           />
           <h2>Plans</h2>
         </Link>
-        <Link to={''}>
+        <Link to={'#'} className="disabled">
           <AiIcons.AiOutlineShareAlt
             data-testid="Social icon"
-            className="icon "
+            className="icon"
           />
           <h2>Social</h2>
         </Link>
@@ -46,7 +46,7 @@ const Header = () => {
           />
           <h2>My plans</h2>
         </Link>
-        <Link to={''}>
+        <Link to={'#'} className="disabled">
           <BsIcons.BsPersonCircle className="icon" />
           <h2>Profile</h2>
         </Link>
