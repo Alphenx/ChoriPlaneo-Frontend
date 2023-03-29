@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, MouseEventHandler } from 'react';
 import styled from 'styled-components';
 
 interface ButtonStyledProps {
@@ -12,6 +12,8 @@ interface ButtonProps extends ButtonStyledProps {
   value: string | any;
   className?: string;
   type?: 'button' | 'reset' | 'submit';
+  action?: MouseEventHandler;
+  disabled?: boolean;
 }
 
 export const ButtonStyled = styled.button<ButtonStyledProps>`
@@ -25,6 +27,13 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
 
   width: ${props => props.width};
   padding: ${props => props.padding};
+
+  :disabled {
+    :hover {
+      cursor: not-allowed;
+      scale: 1;
+    }
+  }
 
   margin: 0 auto;
   height: 40px;
@@ -54,14 +63,18 @@ const Button: FC<ButtonProps> = ({
   value,
   iconSize = '1.25rem',
   type = 'button',
+  action,
+  disabled,
 }) => {
   return (
     <ButtonStyled
+      onClick={action}
       styles={styles}
       width={width}
       padding={padding}
       iconSize={iconSize}
       type={type}
+      disabled={disabled}
     >
       {value}
     </ButtonStyled>
