@@ -5,6 +5,7 @@ import Home from '../pages/Home/Home';
 import MyPlans from '../pages/MyPlans/MyPlans';
 import NotFound from '../pages/NotFound/NotFound';
 import Auth from '../pages/Auth/Auth';
+import Detail from '../pages/Detail/Detail';
 
 export const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ export const router = createBrowserRouter([
       {
         path: 'my-plans',
         element: <MyPlans />,
+      },
+      {
+        path: 'detail/:cardType/:planId',
+        element: <Detail />,
       },
     ],
   },
