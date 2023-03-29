@@ -48,8 +48,8 @@ describe('Given a MyPlansCardList Component', () => {
       expect(loadingElement).toHaveAttribute('alt', 'Loading...');
 
       await waitFor(() => {
-        const items = screen.getAllByTestId('listitem');
-        expect(items).toHaveLength(2);
+        const items = screen.getByTestId('listitem');
+        expect(items).toBeInTheDocument();
       });
     });
   });

@@ -72,10 +72,8 @@ const MyPlans = () => {
   return (
     <MyPlansSectionStyled>
       <div className="page-buttons">
-        <Button value="Recommended" width={'100%'} styles={'outlined'} />
-
         <Link to={'/my-plans'}>
-          <Button value="My plans" width={'100%'} styles="filled" />
+          <Button value="My plans" width={'100%'} styles="filled" disabled />
         </Link>
       </div>
 
