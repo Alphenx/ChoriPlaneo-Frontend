@@ -34,17 +34,19 @@ const Card: FC<CardProps> = ({ plan, cardType, detail = false }) => {
             }
             alt="user-img"
             className="user-img"
-            width={60}
+            width={40}
+            height={40}
           />
 
           <div>
-            <h4>{plan.creator?.name}</h4>
+            <span>{plan.creator?.name}</span>
             <p>{plan.creator?.email}</p>
           </div>
         </div>
 
         <div className="edit-share" data-testid="edit-share">
           <Button
+            disabled={true}
             value="Edit"
             padding={'0.5rem 1rem'}
             width={'100px'}
@@ -52,12 +54,14 @@ const Card: FC<CardProps> = ({ plan, cardType, detail = false }) => {
           />
 
           <Button
+            disabled={true}
             value={<AiIcons.AiOutlineShareAlt className="icon" />}
             styles={'filled'}
           />
         </div>
         <div className="close-btn">
           <Button
+            disabled={true}
             value={<AiIcons.AiOutlineClose className="icon" />}
             styles={'outlined'}
           />
@@ -72,25 +76,31 @@ const Card: FC<CardProps> = ({ plan, cardType, detail = false }) => {
         />
       </Link>
       <div className="plan-info">
-        <h2>{plan.title}</h2>
-        <h3>{plan.place}</h3>
+        <h1>{plan.title}</h1>
+        <h2>{plan.place}</h2>
         <p>{plan.description}</p>
         <p>{dateString}</p>
       </div>
 
       <div className="plan-info-extra">
-        <h2>Users following this plan: {plan.registeredUsers?.length}</h2>
-        <h2>Status: {plan.status ? 'Public' : 'Private'}</h2>
+        <p>Users following this plan: {plan.registeredUsers?.length}</p>
+        <p>Status: {plan.status ? 'Public' : 'Private'}</p>
       </div>
 
       <div className="bottom-label" data-testid="bottom-label">
         <Button
+          disabled={true}
           data-testid="save-btn"
           value={'Save'}
           width={'150px'}
           styles={'outlined'}
         />
-        <Button value={'Share'} width={'150px'} styles={'filled'} />
+        <Button
+          value={'Share'}
+          width={'150px'}
+          styles={'filled'}
+          disabled={true}
+        />
       </div>
     </CardStyled>
   );
