@@ -60,14 +60,14 @@ describe('Given a CreatePlan form component', () => {
       target: { value: 'Test Description' },
     });
     fireEvent.change(placeInput, { target: { value: 'Test Place' } });
-    fireEvent.change(dateInput, { target: { value: '2023-03-25' } });
+    fireEvent.change(dateInput, { target: { value: '2018-06-07T00:00' } });
     fireEvent.click(createPlanButton);
 
     expect(formElement).toHaveFormValues({
       title: 'Test Title',
       description: 'Test Description',
       place: 'Test Place',
-      date: '2023-03-25',
+      date: '2018-06-07T00:00',
       status: true,
     });
 
@@ -159,14 +159,14 @@ describe('Given a CreatePlan form component', () => {
       target: { value: 'Test Description' },
     });
     fireEvent.change(placeInput, { target: { value: 'Test Place' } });
-    fireEvent.change(dateInput, { target: { value: '2023-03-25' } });
+    fireEvent.change(dateInput, { target: { value: '2018-06-07T00:00' } });
     fireEvent.click(createPlanButton);
 
     expect(formElement).toHaveFormValues({
       title: 'Test Title',
       description: 'Test Description',
       place: 'Test Place',
-      date: '2023-03-25',
+      date: '2018-06-07T00:00',
       status: true,
     });
 

@@ -74,7 +74,7 @@ const CreatePlanForm = () => {
           type="text"
           name="title"
           id="title"
-          pattern="[a-zA-Z ]{3,30}"
+          pattern="[a-zA-Z\u00f1\u00d1 ]{3,50}"
           required
         />
       </InputLabelStyled>
@@ -85,7 +85,7 @@ const CreatePlanForm = () => {
           data-testid="Description:"
           placeholder="Description"
           rows={10}
-          maxLength={200}
+          maxLength={1000}
           name="description"
           id="description"
           autoCorrect="on"
@@ -100,7 +100,7 @@ const CreatePlanForm = () => {
           type="text"
           name="place"
           id="place"
-          pattern="[a-zA-Z ]{3,30}"
+          pattern="[a-zA-Z\u00f1\u00d1 ]{3,50}"
           required
         />
       </InputLabelStyled>
@@ -109,10 +109,9 @@ const CreatePlanForm = () => {
         <span>Date:</span>
         <input
           placeholder="Date"
-          type="date"
+          type="datetime-local"
           name="date"
           id="date"
-          pattern="[a-zA-Z ]{3,30}"
           required
         />
       </InputLabelStyled>
