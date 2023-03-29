@@ -88,6 +88,9 @@ export const RegisterFormStyled = styled.form`
 `;
 
 export const RegisterButtonStyled = styled.button`
+  :disabled {
+    background-color: var(--main-color-light);
+  }
   font-family: var(--main-font-bold);
   font-size: var(--font-size-s);
   background-color: var(--main-color);

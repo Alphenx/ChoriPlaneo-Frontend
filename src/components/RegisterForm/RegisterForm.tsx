@@ -119,7 +119,12 @@ const RegisterForm = () => {
         By continuing, you agree to our Terms of Service and Privacy Policy.
       </p>
 
-      <RegisterButtonStyled type="submit">Sign up</RegisterButtonStyled>
+      <RegisterButtonStyled
+        disabled={registerStatus === AuthStatus.LOADING}
+        type="submit"
+      >
+        Sign up
+      </RegisterButtonStyled>
     </RegisterFormStyled>
   );
 };
