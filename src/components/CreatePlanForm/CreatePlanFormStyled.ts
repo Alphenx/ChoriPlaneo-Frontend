@@ -174,12 +174,13 @@ interface StatusProps {
 export const FeedBackStyled = styled.div<StatusProps>`
   padding: 0 2rem;
   h3 {
-    background-color: ${props =>
-      props.status === PlanStatus.SUCCESS
-        ? props.msg
-          ? 'var(--green-color)'
-          : 'transparent'
-        : 'var(--red-color)'};
+    background-color: ${props => {
+      if (props.status === PlanStatus.SUCCESS) {
+        return props.msg ? 'var(--green-color)' : 'transparent';
+      } else {
+        return 'var(--red-color)';
+      }
+    }};
 
     font-family: var(--main-font-light);
     font-size: var(--font-size-xxs);

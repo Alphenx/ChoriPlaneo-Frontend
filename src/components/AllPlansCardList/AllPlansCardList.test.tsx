@@ -1,5 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import { Provider } from 'react-redux';
+import { MemoryRouter } from 'react-router-dom';
 import { store } from '../../app/store';
 import { errorHandlers } from '../../mocks/handlers';
 import { server } from '../../mocks/server';
@@ -13,7 +14,9 @@ describe('Given a AllPlansCardList Component', () => {
     test('Then it should show loading and after response should render the list', async () => {
       render(
         <Provider store={store}>
-          <AllPlansCardList />
+          <MemoryRouter>
+            <AllPlansCardList />
+          </MemoryRouter>
         </Provider>,
       );
 
@@ -31,7 +34,9 @@ describe('When component loads and API responds with error', () => {
     server.use(...errorHandlers);
     render(
       <Provider store={store}>
-        <AllPlansCardList />
+        <MemoryRouter>
+          <AllPlansCardList />
+        </MemoryRouter>
       </Provider>,
     );
     const loadingElement = await screen.findByRole('img');

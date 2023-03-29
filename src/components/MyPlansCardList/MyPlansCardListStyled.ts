@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { APIStatus } from '../../shared/models/api-status';
 
 export const PlansCardList = styled.ul`
   .list-title {
@@ -20,7 +21,10 @@ interface StatusProps {
 export const FeedBackStyled = styled.div<StatusProps>`
   padding: 0 2rem;
   h3 {
-    background-color: var(--red-color);
+    background-color: ${props =>
+      props.status === APIStatus.IDLE
+        ? 'var(--green-color)'
+        : 'var(--red-color)'};
 
     font-family: var(--main-font-light);
     font-size: var(--font-size-xs);

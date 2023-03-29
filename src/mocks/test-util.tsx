@@ -22,6 +22,23 @@ export const renderWithProviders = (
       },
       plans: {
         plans: [],
+        plan: {
+          _id: '1234',
+          title: 'Choriplan',
+          description: '',
+          creator: {
+            name: '',
+            email: '',
+            profileURL: '',
+          },
+          place: '',
+          status: 'public',
+          date: 'December 17, 1995 03:24:00',
+          registeredUsers: [
+            { name: '', email: '' },
+            { name: '', email: '' },
+          ],
+        },
         user: {
           name: '',
           email: '',

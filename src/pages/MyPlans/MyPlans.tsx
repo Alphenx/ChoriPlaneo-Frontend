@@ -74,7 +74,7 @@ const MyPlans = () => {
       <div className="page-buttons">
         <Button value="Recommended" width={'100%'} styles={'outlined'} />
 
-        <Link to={'/app/my-plans'}>
+        <Link to={'/my-plans'}>
           <Button value="My plans" width={'100%'} styles="filled" />
         </Link>
       </div>
@@ -82,12 +82,12 @@ const MyPlans = () => {
       <MyPlansCardList />
 
       <div className="create-button-desktop">
-        <Link to={'/app/create-plan'}>
+        <Link to={'/create-plan'}>
           <Button value="Create new plan" width={'250px'} styles={'filled'} />
         </Link>
       </div>
       <div className="create-button-mobile">
-        <Link to={'/app/create-plan'}>
+        <Link to={'/create-plan'}>
           <Button
             value={<AiIcons.AiOutlinePlus className="icon" />}
             iconSize={'2rem'}

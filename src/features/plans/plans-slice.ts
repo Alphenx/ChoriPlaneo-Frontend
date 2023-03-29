@@ -3,13 +3,23 @@ import { RootState } from '../../app/store';
 import { APIStatus, PlanStatus } from '../../shared/models/api-status';
 import { UserInfo } from '../auth/user.model';
 import { Plan } from './plan.model';
-import { createNewPlan, getAllPlans, getUserInfo } from './plans-api';
+import {
+  createNewPlan,
+  getAllPlans,
+  getPlanById,
+  getUserInfo,
+} from './plans-api';
 
 const STATE_NAME = 'plans';
 
 export interface PlansResponse {
   msg: string;
   plans: Plan[];
+}
+
+export interface PlanResponse {
+  msg: string;
+  plans: Plan;
 }
 
 export interface UserInfoResponse {
@@ -24,6 +34,7 @@ export interface CreatePlanResponse {
 
 export interface PlansState {
   plans: Plan[];
+  plan: Plan;
   user: UserInfo;
   status: APIStatus;
   planStatus: PlanStatus;
@@ -34,6 +45,20 @@ export interface PlansState {
 
 const INITIAL_STATE: PlansState = {
   plans: [],
+  plan: {
+    _id: '0000',
+    title: '404 Plan not found',
+    description: '',
+    creator: {
+      name: '',
+      email: '',
+      profileURL: '',
+    },
+    place: '',
+    status: '',
+    date: '',
+    registeredUsers: [],
+  },
   user: {
     name: '',
     email: '',
@@ -55,6 +80,18 @@ export const getAllPlansAsync = createAsyncThunk(
   async () => {
     const apiResponse = await getAllPlans();
     const data: PlansResponse = await apiResponse.json();
+    if (!apiResponse.ok) {
+      throw new Error(`${data.msg}`);
+    }
+    return data;
+  },
+);
+
+export const getPlanByIdAsync = createAsyncThunk(
+  `${STATE_NAME}/getPlanById`,
+  async (planId: string) => {
+    const apiResponse = await getPlanById(planId);
+    const data: PlanResponse = await apiResponse.json();
     if (!apiResponse.ok) {
       throw new Error(`${data.msg}`);
     }
@@ -107,6 +144,26 @@ export const plansSlice = createSlice({
       },
     );
     builder.addCase(getAllPlansAsync.rejected, (state, action) => {
+      state.status = APIStatus.ERROR;
+      state.planStatus = PlanStatus.ERROR;
+      state.responseMsg = action.error.message;
+    });
+
+    // GET PLAN BY ID
+    builder.addCase(getPlanByIdAsync.pending, state => {
+      state.status = APIStatus.LOADING;
+      state.planStatus = PlanStatus.LOADING;
+    });
+    builder.addCase(
+      getPlanByIdAsync.fulfilled,
+      (state, action: PayloadAction<PlanResponse>) => {
+        state.status = APIStatus.IDLE;
+        state.planStatus = PlanStatus.SUCCESS;
+        state.plan = action.payload.plans;
+        state.responseMsg = action.payload.msg;
+      },
+    );
+    builder.addCase(getPlanByIdAsync.rejected, (state, action) => {
       state.status = APIStatus.ERROR;
       state.planStatus = PlanStatus.ERROR;
       state.responseMsg = action.error.message;
