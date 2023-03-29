@@ -35,21 +35,7 @@ const MyPlansCardList = () => {
               </PlansCardList>
             ) : (
               <FeedBackStyled status={APIStatus.ERROR}>
-                <h3>You don't have any plan, try to create a new one!</h3>
-              </FeedBackStyled>
-            )}
-            {user.savedPlans.length !== 0 ? (
-              <PlansCardList>
-                <h2 className="list-title">Saved Plans</h2>
-                {user.savedPlans.map(plan => (
-                  <li key={plan.title} data-testid="listitem">
-                    <Card plan={plan} cardType={'recommended'} />
-                  </li>
-                ))}
-              </PlansCardList>
-            ) : (
-              <FeedBackStyled status={APIStatus.ERROR}>
-                <h3>You don't have any saved plans, checkout public plans!</h3>
+                <h3>You don't have any plan, create a new one!</h3>
               </FeedBackStyled>
             )}
           </>

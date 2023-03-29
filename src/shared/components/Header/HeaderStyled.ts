@@ -36,6 +36,11 @@ export const HeaderStyled = styled.header`
     justify-content: space-evenly;
     height: 100%;
     gap: 20px;
+    .disabled {
+      :hover {
+        cursor: not-allowed;
+      }
+    }
 
     .icon {
       height: 25px;

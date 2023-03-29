@@ -37,7 +37,7 @@ export const CardStyled = styled.article<CardStyledProps>`
         width: 40px;
         border-radius: var(--radius-xl);
       }
-      h4 {
+      span {
         font-family: var(--main-font-bold);
         font-size: var(--font-size-s);
       }
@@ -70,7 +70,7 @@ export const CardStyled = styled.article<CardStyledProps>`
     flex-direction: column;
     gap: 5px;
 
-    h2 {
+    h1 {
       font-family: var(--main-font-bold);
       font-size: var(--font-size-s);
       text-overflow: ellipsis;
@@ -78,7 +78,7 @@ export const CardStyled = styled.article<CardStyledProps>`
       white-space: nowrap;
     }
 
-    h3 {
+    h2 {
       font-family: var(--main-font-regular);
       font-size: var(--font-size-xs);
     }
