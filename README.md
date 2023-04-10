@@ -6,8 +6,6 @@
 <h3 align="center">Adrián García Final Project</h3>
 <p align="center">Full Stack Developer Bootcamp - ISDI Coders</p>
 
----
-
 <!-- LINK - BADGES -->
 <p align="center">
   <a href="mailto:adriangarcia.comunicacion@gmail.com" target="_blank">
@@ -26,7 +24,6 @@
 
 <!-- TABLE OF CONTENTS -->
 <div align="center">
-<h3>
   <a href="#about">About</a> •
   <a href="#built-with">Built with</a> •
   <a href="#code-quality">Code Quality</a> •
@@ -66,13 +63,13 @@ En ChoriPlaneo, tu seguridad y privacidad son nuestra máxima prioridad. Protege
 
 ¿Estás listo para "choriplanear" con tus amigos? Únete a la comunidad de ChoriPlaneo y descubre nuevas aventuras juntos. ¡No te quedes atrás y crea momentos inolvidables con ChoriPlaneo!
 
----
+<br>
 
 ## Built with
 
 > **Code** <br> ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white) ![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white) ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white) ![Styled-Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white) ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)<br><br>**Production** <br> ![Netlify](https://img.shields.io/badge/Netlify-00C7B7.svg?style=for-the-badge&logo=Netlify&logoColor=white) ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white) ![Trello](https://img.shields.io/badge/Trello-0052CC?style=for-the-badge&logo=trello&logoColor=white) <br><br>**Quality tools** <br> <img src="https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white"> <img src="https://img.shields.io/badge/Sonar%20cloud-F3702A?style=for-the-badge&logo=sonarcloud&logoColor=white"> <img src="https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white"> <img src="https://img.shields.io/badge/SonarLint-CB2029?style=for-the-badge&logo=sonarlint&logoColor=white"> <img src="https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E"> <img src="https://img.shields.io/badge/Lighthouse-F44B21?style=for-the-badge&logo=Lighthouse&logoColor=white">
 
----
+<br>
 
 ## Code Quality
 
@@ -87,25 +84,25 @@ Overall, I believe that using tools like Jest and SonarCloud to test and analyze
 
 Click on the image for Sonar overview!
 
-<a href="https://sonarcloud.io/project/overview?id=isdi-coders-2023_Adrian-Garcia-Final-Project-front-202301-mal">
+<a href="https://sonarcloud.io/project/overview?id=ChoriPlaneo-Frontend">
   <img src="public/assets/imgs/Sonar.png">
 </a>
 <br>
 
 Here are the REAL TIME badges with the end result of SonarCloud scans:
 
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=isdi-coders-2023_Adrian-Garcia-Final-Project-front-202301-mal&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=isdi-coders-2023_Adrian-Garcia-Final-Project-front-202301-mal)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=isdi-coders-2023_Adrian-Garcia-Final-Project-front-202301-mal&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=isdi-coders-2023_Adrian-Garcia-Final-Project-front-202301-mal)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=isdi-coders-2023_Adrian-Garcia-Final-Project-front-202301-mal&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=isdi-coders-2023_Adrian-Garcia-Final-Project-front-202301-mal)<br>
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=isdi-coders-2023_Adrian-Garcia-Final-Project-front-202301-mal&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=isdi-coders-2023_Adrian-Garcia-Final-Project-front-202301-mal)
-[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=isdi-coders-2023_Adrian-Garcia-Final-Project-front-202301-mal&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=isdi-coders-2023_Adrian-Garcia-Final-Project-front-202301-mal)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=isdi-coders-2023_Adrian-Garcia-Final-Project-front-202301-mal&metric=coverage)](https://sonarcloud.io/summary/new_code?id=isdi-coders-2023_Adrian-Garcia-Final-Project-front-202301-mal)<br>
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=isdi-coders-2023_Adrian-Garcia-Final-Project-front-202301-mal&metric=bugs)](https://sonarcloud.io/summary/new_code?id=isdi-coders-2023_Adrian-Garcia-Final-Project-front-202301-mal)
-[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=isdi-coders-2023_Adrian-Garcia-Final-Project-front-202301-mal&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=isdi-coders-2023_Adrian-Garcia-Final-Project-front-202301-mal)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=isdi-coders-2023_Adrian-Garcia-Final-Project-front-202301-mal&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=isdi-coders-2023_Adrian-Garcia-Final-Project-front-202301-mal)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=isdi-coders-2023_Adrian-Garcia-Final-Project-front-202301-mal&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=isdi-coders-2023_Adrian-Garcia-Final-Project-front-202301-mal)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=ChoriPlaneo-Frontend&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=ChoriPlaneo-Frontend)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=ChoriPlaneo-Frontend&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=ChoriPlaneo-Frontend)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=ChoriPlaneo-Frontend&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=ChoriPlaneo-Frontend)<br>
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ChoriPlaneo-Frontend&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=ChoriPlaneo-Frontend)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=ChoriPlaneo-Frontend&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=ChoriPlaneo-Frontend)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=ChoriPlaneo-Frontend&metric=coverage)](https://sonarcloud.io/summary/new_code?id=ChoriPlaneo-Frontend)<br>
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=ChoriPlaneo-Frontend&metric=bugs)](https://sonarcloud.io/summary/new_code?id=ChoriPlaneo-Frontend)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=ChoriPlaneo-Frontend&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=ChoriPlaneo-Frontend)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=ChoriPlaneo-Frontend&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=ChoriPlaneo-Frontend)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=ChoriPlaneo-Frontend&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=ChoriPlaneo-Frontend)
 
----
+<br>
 
 ## Demo
 
@@ -119,7 +116,7 @@ Here are the REAL TIME badges with the end result of SonarCloud scans:
 </p>
 <br>
 
----
+<br>
 
 ## Backend
 
@@ -127,7 +124,7 @@ This work is Full Stack, here you can access the backend part of the project.
 
 https://github.com/isdi-coders-2023/Adrian-Garcia-Final-Project-back-202301-mal
 
----
+<br>
 
 ## License
 
