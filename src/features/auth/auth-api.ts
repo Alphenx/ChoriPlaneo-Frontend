@@ -2,7 +2,7 @@ import { UserLogin, UserRegister } from './user.model';
 
 export const sendUserForSignUp = async (userSignUp: UserRegister) => {
   const response = await fetch(
-    'https://adrian-garcia-final-project-back-202301.onrender.com/auth/register',
+    `${process.env.REACT_APP_API_URL}/auth/register`,
     {
       method: 'POST',
       mode: 'cors',
@@ -17,17 +17,14 @@ export const sendUserForSignUp = async (userSignUp: UserRegister) => {
 };
 
 export const sendUserForLogIn = async (userLogin: UserLogin) => {
-  const response = await fetch(
-    'https://adrian-garcia-final-project-back-202301.onrender.com/auth/login',
-    {
-      method: 'POST',
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(userLogin),
+  const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/login`, {
+    method: 'POST',
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'application/json',
     },
-  );
+    body: JSON.stringify(userLogin),
+  });
 
   return response;
 };
