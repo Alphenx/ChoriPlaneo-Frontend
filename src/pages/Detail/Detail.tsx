@@ -24,7 +24,9 @@ const Detail = () => {
   const { planId = '', cardType = 'public' } = useParams();
 
   useEffect(() => {
-    dispatch(getPlanByIdAsync(planId));
+    dispatch(getPlanByIdAsync(planId)).catch(err => {
+      throw new Error(err);
+    });
   }, [dispatch, planId]);
 
   const generateFeedback = () => {
