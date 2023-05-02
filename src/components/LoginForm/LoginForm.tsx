@@ -5,7 +5,7 @@ import {
   selectAuthSlice,
   sendUserForLogInAsync,
 } from '../../features/auth/auth-slice';
-import { UserLogin } from '../../features/auth/user.model';
+import { UserLogin } from '../../features/users/user.model';
 import Loading from '../../shared/components/Loading/Loading';
 import { AuthStatus } from '../../shared/models/api-status';
 
@@ -14,6 +14,7 @@ import {
   LoginButtonStyled,
   FeedBackStyled,
 } from './LoginStyled';
+import { getUserInfoAsync } from '../../features/users/users-slice';
 
 const LoginForm = () => {
   const dispatch = useAppDispatch();
@@ -23,8 +24,9 @@ const LoginForm = () => {
   useEffect(() => {
     if (loginStatus === AuthStatus.SUCCESS) {
       navigate('/home', { replace: true });
+      dispatch(getUserInfoAsync());
     }
-  }, [loginStatus, navigate]);
+  }, [dispatch, loginStatus, navigate]);
 
   const generateFeedback = () => {
     switch (loginStatus) {

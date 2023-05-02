@@ -6,7 +6,7 @@ import {
   selectAuthSlice,
   sendUserForSignUpAsync,
 } from '../../features/auth/auth-slice';
-import { UserRegister } from '../../features/auth/user.model';
+import { UserRegister } from '../../features/users/user.model';
 import Loading from '../../shared/components/Loading/Loading';
 import { AuthStatus } from '../../shared/models/api-status';
 import {
