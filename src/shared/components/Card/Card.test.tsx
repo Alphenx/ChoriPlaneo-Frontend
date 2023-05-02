@@ -18,6 +18,7 @@ describe('Given a Card component', () => {
       name: 'pepe',
       email: 'pepe@pepe.com',
       profileURL: 'https://user-img.com',
+      savedPlans: [],
     },
     planImgURL: 'https://plan-img.com',
   };
@@ -32,6 +33,7 @@ describe('Given a Card component', () => {
     creator: {
       name: 'pepe',
       email: 'pepe@pepe.com',
+      savedPlans: [],
     },
     planImgURL: undefined,
     status: undefined,
@@ -139,38 +141,5 @@ describe('Given a Card component', () => {
 
     expect(buttonElement).toBeInTheDocument();
     expect(saveFn).toHaveBeenCalled();
-  });
-});
-
-describe('Card component', () => {
-  test('clicking Save button dispatches savePlanByIdAsync action', () => {
-    const plan: Plan = {
-      _id: '12314',
-      title: 'Choriplan 1',
-      description: 'Description 1',
-      place: 'Málaga, Spain',
-      status: 'public',
-      date: 'December 25, 1995 23:15:30',
-      registeredUsers: [],
-      creator: {
-        name: 'pepe',
-        email: 'pepe@pepe.com',
-        profileURL: 'https://user-img.com',
-      },
-      planImgURL: 'https://plan-img.com',
-    };
-    render(
-      <Provider store={store}>
-        <MemoryRouter>
-          <Card plan={plan} cardType={'public'} />
-        </MemoryRouter>
-      </Provider>,
-    );
-
-    const dispatchMock = jest.fn();
-    const saveBtn = screen.getByText(/Save/);
-    fireEvent.click(saveBtn, dispatchMock());
-
-    expect(dispatchMock).toHaveBeenCalled();
   });
 });

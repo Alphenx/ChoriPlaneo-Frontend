@@ -102,5 +102,10 @@ export const CardStyled = styled.article<CardStyledProps>`
     padding: 0.5rem 1rem 1rem;
     justify-content: space-between;
     width: 100%;
+    button.saved {
+      color: var(--base-color-text-light);
+      border-color: var(--green-color);
+      background-color: var(--green-color);
+    }
   }
 `;

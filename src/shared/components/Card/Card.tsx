@@ -1,17 +1,33 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Plan } from '../../../features/plans/plan.model';
 import { CardStyled } from './CardStyled';
 import * as AiIcons from 'react-icons/ai';
 import Button from '../Button/Button';
 import { Link } from 'react-router-dom';
+import { UserInfo } from '../../../features/users/user.model';
+import {
+  deletePlanByIdAsync,
+  getUserInfoAsync,
+  savePlanByIdAsync,
+  selectUsers,
+} from '../../../features/users/users-slice';
+import { useAppDispatch, useAppSelector } from '../../../app/hooks';
+import { APIStatus } from '../../models/api-status';
 
-interface CardProps {
+export interface CardProps {
   plan: Plan;
+  user?: UserInfo;
   cardType: string;
   detail?: boolean;
 }
 
 const Card: FC<CardProps> = ({ plan, cardType, detail = false }) => {
+  const dispatch = useAppDispatch();
+
+  const { user, status } = useAppSelector(selectUsers);
+
+  const isSaved = user?.savedPlans.some(e => e.title === plan.title);
+
   const date = new Date(plan.date);
   const dateString = date.toLocaleString('en', {
     month: 'long',
@@ -89,11 +105,19 @@ const Card: FC<CardProps> = ({ plan, cardType, detail = false }) => {
 
       <div className="bottom-label" data-testid="bottom-label">
         <Button
-          disabled={true}
           data-testid="save-btn"
-          value={'Save'}
+          value={isSaved ? 'Saved' : 'Save'}
           width={'150px'}
           styles={'outlined'}
+          action={async () => {
+            isSaved
+              ? await dispatch(deletePlanByIdAsync(plan._id))
+              : await dispatch(savePlanByIdAsync(plan._id));
+
+            await dispatch(getUserInfoAsync());
+          }}
+          disabled={status === APIStatus.LOADING}
+          className={isSaved ? 'saved' : ''}
         />
         <Button
           value={'Share'}
