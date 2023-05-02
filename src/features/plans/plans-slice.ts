@@ -1,14 +1,8 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 import { APIStatus, PlanStatus } from '../../shared/models/api-status';
-import { UserInfo } from '../auth/user.model';
 import { Plan } from './plan.model';
-import {
-  createNewPlan,
-  getAllPlans,
-  getPlanById,
-  getUserInfo,
-} from './plans-api';
+import { createNewPlan, getAllPlans, getPlanById } from './plans-api';
 
 const STATE_NAME = 'plans';
 
@@ -22,11 +16,6 @@ export interface PlanResponse {
   plans: Plan;
 }
 
-export interface UserInfoResponse {
-  msg: string;
-  users: UserInfo;
-}
-
 export interface CreatePlanResponse {
   msg: string;
   plans: Plan;
@@ -35,10 +24,8 @@ export interface CreatePlanResponse {
 export interface PlansState {
   plans: Plan[];
   plan: Plan;
-  user: UserInfo;
   status: APIStatus;
   planStatus: PlanStatus;
-  userInfoStatus: PlanStatus;
   createPlanStatus: PlanStatus;
   responseMsg: string | undefined;
 }
@@ -53,24 +40,15 @@ const INITIAL_STATE: PlansState = {
       name: '',
       email: '',
       profileURL: '',
+      savedPlans: [],
     },
     place: '',
     status: '',
     date: '',
     registeredUsers: [],
   },
-  user: {
-    name: '',
-    email: '',
-    profileURL: '',
-    friends: [],
-    recommendedPlans: [],
-    savedPlans: [],
-    createdPlans: [],
-  },
   status: APIStatus.IDLE,
   planStatus: PlanStatus.NOT_USED,
-  userInfoStatus: PlanStatus.NOT_USED,
   createPlanStatus: PlanStatus.NOT_USED,
   responseMsg: '',
 };
@@ -92,18 +70,6 @@ export const getPlanByIdAsync = createAsyncThunk(
   async (planId: string) => {
     const apiResponse = await getPlanById(planId);
     const data: PlanResponse = await apiResponse.json();
-    if (!apiResponse.ok) {
-      throw new Error(`${data.msg}`);
-    }
-    return data;
-  },
-);
-
-export const getUserInfoAsync = createAsyncThunk(
-  `${STATE_NAME}/getUserInfo`,
-  async () => {
-    const apiResponse = await getUserInfo();
-    const data: UserInfoResponse = await apiResponse.json();
     if (!apiResponse.ok) {
       throw new Error(`${data.msg}`);
     }
@@ -185,26 +151,6 @@ export const plansSlice = createSlice({
     builder.addCase(createPlanAsync.rejected, (state, action) => {
       state.status = APIStatus.ERROR;
       state.createPlanStatus = PlanStatus.ERROR;
-      state.responseMsg = action.error.message;
-    });
-
-    // GET USER INFO
-    builder.addCase(getUserInfoAsync.pending, state => {
-      state.status = APIStatus.LOADING;
-      state.userInfoStatus = PlanStatus.LOADING;
-    });
-    builder.addCase(
-      getUserInfoAsync.fulfilled,
-      (state, action: PayloadAction<UserInfoResponse>) => {
-        state.status = APIStatus.IDLE;
-        state.userInfoStatus = PlanStatus.SUCCESS;
-        state.user = action.payload.users;
-        state.responseMsg = action.payload.msg;
-      },
-    );
-    builder.addCase(getUserInfoAsync.rejected, (state, action) => {
-      state.status = APIStatus.ERROR;
-      state.userInfoStatus = PlanStatus.ERROR;
       state.responseMsg = action.error.message;
     });
   },
