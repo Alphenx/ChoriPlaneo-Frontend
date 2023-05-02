@@ -1,4 +1,4 @@
-import { UserLogin, UserRegister } from './user.model';
+import { UserLogin, UserRegister } from '../users/user.model';
 
 export const sendUserForSignUp = async (userSignUp: UserRegister) => {
   const response = await fetch(

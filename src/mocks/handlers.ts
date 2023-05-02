@@ -7,7 +7,7 @@ import {
 
 export const handlers = [
   rest.post(
-    `https://adrian-garcia-final-project-back-202301.onrender.com/auth/register`,
+    `${process.env.REACT_APP_API_URL}/auth/register`,
     async (req, res, ctx) => {
       const request = await req.json();
       const { email } = request;
@@ -27,7 +27,7 @@ export const handlers = [
   ),
 
   rest.post(
-    `https://adrian-garcia-final-project-back-202301.onrender.com/auth/login`,
+    `${process.env.REACT_APP_API_URL}/auth/login`,
     async (req, res, ctx) => {
       const request = await req.json();
       const { email } = request;
@@ -49,14 +49,14 @@ export const handlers = [
   ),
 
   rest.get(
-    `https://adrian-garcia-final-project-back-202301.onrender.com/api/v1/plans`,
+    `${process.env.REACT_APP_API_URL}/api/v1/plans`,
     async (_req, res, ctx) => {
       return res(ctx.status(200), ctx.json(plansFullFilledResponse));
     },
   ),
 
   rest.get(
-    `https://adrian-garcia-final-project-back-202301.onrender.com/api/v1/plans/1234`,
+    `${process.env.REACT_APP_API_URL}/api/v1/plans/1234`,
     async (_req, res, ctx) => {
       return res(
         ctx.status(200),
@@ -66,7 +66,7 @@ export const handlers = [
   ),
 
   rest.get(
-    `https://adrian-garcia-final-project-back-202301.onrender.com/api/v1/users/info`,
+    `${process.env.REACT_APP_API_URL}/api/v1/users/info`,
     async (_req, res, ctx) => {
       return res(ctx.status(200), ctx.json(userInfoFullFilledResponse));
     },
@@ -75,19 +75,19 @@ export const handlers = [
 
 export const errorHandlers = [
   rest.get(
-    `https://adrian-garcia-final-project-back-202301.onrender.com/api/v1/plans`,
+    `${process.env.REACT_APP_API_URL}/api/v1/plans`,
     (_req, res, ctx) => {
       return res.once(ctx.status(500), ctx.json(null));
     },
   ),
   rest.get(
-    `https://adrian-garcia-final-project-back-202301.onrender.com/api/v1/users/info`,
+    `${process.env.REACT_APP_API_URL}/api/v1/users/info`,
     (_req, res, ctx) => {
       return res.once(ctx.status(500), ctx.json(null));
     },
   ),
   rest.get(
-    `https://adrian-garcia-final-project-back-202301.onrender.com/api/v1/plans/1234`,
+    `${process.env.REACT_APP_API_URL}/api/v1/plans/1234`,
     (_req, res, ctx) => {
       return res(
         ctx.status(404),

@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 import { APIStatus, AuthStatus } from '../../shared/models/api-status';
 import { sendUserForLogIn, sendUserForSignUp } from './auth-api';
-import { UserLogin, UserRegister } from './user.model';
+import { UserLogin, UserRegister } from '../users/user.model';
 
 const STATE_NAME = 'usersAuth';
 

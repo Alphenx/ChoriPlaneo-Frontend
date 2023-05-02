@@ -64,6 +64,7 @@ const Button: FC<ButtonProps> = ({
   iconSize = '1.25rem',
   type = 'button',
   action,
+  className,
   disabled,
 }) => {
   return (
@@ -75,6 +76,7 @@ const Button: FC<ButtonProps> = ({
       iconSize={iconSize}
       type={type}
       disabled={disabled}
+      className={className}
     >
       {value}
     </ButtonStyled>

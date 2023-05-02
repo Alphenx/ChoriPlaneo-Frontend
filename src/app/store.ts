@@ -7,16 +7,19 @@ import {
 } from '@reduxjs/toolkit';
 import authReducer from '../features/auth/auth-slice';
 import plansReducer from '../features/plans/plans-slice';
+import usersReducer from '../features/users/users-slice';
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
     plans: plansReducer,
+    users: usersReducer,
   },
 });
 const rootReducer = combineReducers({
   auth: authReducer,
   plans: plansReducer,
+  users: usersReducer,
 });
 
 export const setupStore = (preloadedState?: PreloadedState<RootState>) => {

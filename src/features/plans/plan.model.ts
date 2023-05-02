@@ -1,9 +1,12 @@
-import User from '../auth/user.model';
+import User, { UserInfo } from '../users/user.model';
 
 type Creator = Pick<User, 'email' | 'name'> & { profileURL?: string };
+type CreatorInfo = Pick<UserInfo, 'email' | 'name' | 'savedPlans'> & {
+  profileURL?: string;
+};
 export interface Plan {
   _id: string;
-  creator: Creator;
+  creator: CreatorInfo;
   title: string;
   description: string;
   place: string;

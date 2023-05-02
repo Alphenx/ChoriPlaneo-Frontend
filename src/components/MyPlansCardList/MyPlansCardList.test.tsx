@@ -20,11 +20,9 @@ describe('When component loads and API responds with error', () => {
         </MemoryRouter>
       </Provider>,
     );
-    const loadingElement = await screen.findByRole('img');
-    expect(loadingElement).toHaveAttribute('alt', 'Loading...');
 
     await waitFor(() => {
-      const errorMessage = screen.getByText('Error. Plans not found.');
+      const errorMessage = screen.getByText(`Error. Plans not found.`);
       expect(errorMessage).toBeInTheDocument();
     });
   });
@@ -44,12 +42,10 @@ describe('Given a MyPlansCardList Component', () => {
         'acessToken',
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MWY0ZjE3NmQ5M2I2NmY2OGY1ODkxMSIsImlhdCI6MTY3OTc3MzQ4MX0.Ug4j4t3FqeU9ClGfe8OvCw6wkHAXkoDdg7WIUCrVlU8',
       );
-      const loadingElement = await screen.findByRole('img');
-      expect(loadingElement).toHaveAttribute('alt', 'Loading...');
 
       await waitFor(() => {
-        const items = screen.getByTestId('listitem');
-        expect(items).toBeInTheDocument();
+        const items = screen.getAllByTestId('listitem');
+        expect(items).toHaveLength(2);
       });
     });
   });

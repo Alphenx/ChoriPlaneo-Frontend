@@ -19,7 +19,7 @@ const DetailStyled = styled.section`
 
 const Detail = () => {
   const dispatch = useAppDispatch();
-  const { plan, status, responseMsg } = useAppSelector(selectPlans);
+  const { plan, status } = useAppSelector(selectPlans);
 
   const { planId = '', cardType = 'public' } = useParams();
 
@@ -32,24 +32,17 @@ const Detail = () => {
       case APIStatus.LOADING:
         return <Loading width={80} />;
       case APIStatus.IDLE:
-        return (
-          <FeedBackStyled status={APIStatus.IDLE}>{responseMsg}</FeedBackStyled>
-        );
+        return <Card plan={plan} cardType={`${cardType}`} detail={true} />;
       case APIStatus.ERROR:
         return (
-          <FeedBackStyled status={APIStatus.ERROR}>
+          <FeedBackStyled>
             <h3>Ops... this plan don't exists.</h3>
           </FeedBackStyled>
         );
     }
   };
 
-  return (
-    <DetailStyled>
-      {generateFeedback()}
-      <Card plan={plan} cardType={`${cardType}`} detail={true} />
-    </DetailStyled>
-  );
+  return <DetailStyled>{generateFeedback()}</DetailStyled>;
 };
 
 export default Detail;
