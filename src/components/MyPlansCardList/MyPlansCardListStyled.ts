@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { APIStatus } from '../../shared/models/api-status';
 
 export const PlansCardList = styled.ul`
   .list-title {
