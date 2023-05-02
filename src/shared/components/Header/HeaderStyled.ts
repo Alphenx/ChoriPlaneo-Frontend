@@ -49,7 +49,7 @@ export const HeaderStyled = styled.header`
     }
     .selected {
       background-color: var(--main-color);
-      color: var(--base-color-bg);
+      color: var(--base-color-text-light);
       width: 100%;
       border-radius: var(--radius-m);
     }
