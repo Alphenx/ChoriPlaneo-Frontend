@@ -24,13 +24,15 @@ const Detail = () => {
   const { planId = '', cardType = 'public' } = useParams();
 
   useEffect(() => {
-    dispatch(getPlanByIdAsync(planId));
+    dispatch(getPlanByIdAsync(planId)).catch(err => {
+      throw new Error(err);
+    });
   }, [dispatch, planId]);
 
   const generateFeedback = () => {
     switch (status) {
       case APIStatus.LOADING:
-        return <Loading width={80} />;
+        return <Loading width={200} />;
       case APIStatus.IDLE:
         return <Card plan={plan} cardType={`${cardType}`} detail={true} />;
       case APIStatus.ERROR:

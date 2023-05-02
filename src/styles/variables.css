@@ -62,14 +62,3 @@ html[data-theme='dark'] {
   --base-color-text-dark: #0e1319;
   --second-color-light: #dacee3;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* COLORS VARIABLES */
-    --base-color-bg: #0e1319;
-    --base-color-contrast: #ffffff;
-    --base-color-text-light: #ffffff;
-    --base-color-text-dark: #0e1319;
-    --second-color-light: #6c3a8e;
-  }
-}
