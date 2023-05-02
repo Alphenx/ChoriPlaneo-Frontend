@@ -11,6 +11,17 @@ const HandleTheme = () => {
     document.documentElement.setAttribute('data-theme', currentTheme);
   }, [currentTheme]);
 
+  useEffect(() => {
+    if (
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches
+    ) {
+      setCurrentTheme('dark');
+    } else {
+      setCurrentTheme('light');
+    }
+  }, []);
+
   return (
     <Switch>
       <label className="switch">
